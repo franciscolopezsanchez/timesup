@@ -1,19 +1,18 @@
-
 import React from "react"
 import "./GameCreation.css"
 import Title from "../title/Title"
-import PlayerList from "../playerList/PlayerList"
+import PlayerListContainer from "../../containers/playerListContainer/PlayerListContainer"
 import SettingList from "../settingList/SettingList"
-import ActionButton from '../actionButton/ActionButton'
+import ActionButton from "../actionButton/ActionButton"
 
 function GameCreation() {
 	return (
 		<div>
 			<Title />
-			<PlayerList />
-			<PlayerList />
+			<PlayerListContainer />
+			<PlayerListContainer />
 			<SettingList />
-            <ActionButton/>
+			<ActionButton />
 		</div>
 	)
 }
