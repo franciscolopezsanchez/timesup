@@ -22,7 +22,7 @@ const players = (state = initialState, action) => {
       return {
         ...state,
         players: state.players.filter(value => {
-          return value === action.player_name
+          return value.name !== action.player_name
         })
       }
 

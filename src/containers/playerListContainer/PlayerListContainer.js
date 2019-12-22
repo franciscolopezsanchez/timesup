@@ -4,8 +4,14 @@ import PlayerList from "../../components/playerList/PlayerList"
 import { createPlayer, removePlayer } from "../../actions/player"
 import { getPlayers } from "../../reducers/player"
 
-const PlayerListContainer = ({ players, charactersURLs }) => {
-	return <PlayerList players={players} />
+const PlayerListContainer = ({ players, createPlayer, removePlayer }) => {
+	return (
+		<PlayerList
+			players={players}
+			createPlayer={createPlayer}
+			removePlayer={removePlayer}
+		/>
+	)
 }
 
 const mapStateToProps = (state, props) => ({

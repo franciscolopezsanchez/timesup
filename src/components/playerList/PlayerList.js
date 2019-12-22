@@ -3,7 +3,7 @@ import "./PlayerList.css"
 import PlayerInput from "../playerInput/PlayerInput"
 import Player from "../player/Player"
 
-function PlayerList({ players }) {
+function PlayerList({ players, createPlayer, removePlayer }) {
 	if (!players) return null
 	return (
 		<div>
@@ -12,7 +12,10 @@ function PlayerList({ players }) {
 				{players.map(player => {
 					return (
 						<li key={player.name}>
-							<Player name={player.name} />
+							<Player
+								name={player.name}
+								removePlayer={removePlayer}
+							/>
 						</li>
 					)
 				})}
