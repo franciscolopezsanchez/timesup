@@ -9,8 +9,8 @@ function GameCreation() {
 	return (
 		<div>
 			<Title />
-			<PlayerListContainer />
-			<PlayerListContainer />
+			<PlayerListContainer teamId={0} teamName="Equipo Azul" />
+			<PlayerListContainer teamId={1} teamName="Equipo Amarillo" />
 			<SettingList />
 			<ActionButton />
 		</div>

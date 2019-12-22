@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-function PlayerInput({ createPlayer }) {
+function PlayerInput({ teamId, createPlayer }) {
 	const [player, setPlayer] = useState("")
 	return (
 		<div>
@@ -9,7 +9,7 @@ function PlayerInput({ createPlayer }) {
 				value={player}
 				onChange={e => setPlayer(e.target.value)}
 				onBlur={() => {
-					createPlayer(player, 0)
+					createPlayer(player, teamId)
 					setPlayer("")
 				}}
 			/>

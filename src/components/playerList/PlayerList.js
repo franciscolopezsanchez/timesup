@@ -3,11 +3,11 @@ import "./PlayerList.css"
 import PlayerInput from "../playerInput/PlayerInput"
 import Player from "../player/Player"
 
-function PlayerList({ players, createPlayer, removePlayer }) {
+function PlayerList({ teamId, teamName, players, createPlayer, removePlayer }) {
 	if (!players) return null
 	return (
 		<div>
-			<h3>Equipo Azul</h3>
+			<h3>{teamName}</h3>
 			<ul>
 				{players.map(player => {
 					return (
@@ -20,7 +20,7 @@ function PlayerList({ players, createPlayer, removePlayer }) {
 					)
 				})}
 				<li>
-					<PlayerInput createPlayer={createPlayer} />
+					<PlayerInput createPlayer={createPlayer} teamId={teamId} />
 				</li>
 			</ul>
 		</div>

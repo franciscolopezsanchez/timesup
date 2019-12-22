@@ -1,10 +1,7 @@
 import { CREATE_PLAYER, REMOVE_PLAYER } from "../actions/player"
 
 const initialState = {
-  players: [
-    { name: "Jesus", team: 0 },
-    { name: "Curro", team: 1 }
-  ]
+  players: []
 }
 
 const players = (state = initialState, action) => {
@@ -32,4 +29,5 @@ const players = (state = initialState, action) => {
 }
 export default players
 
-export const getPlayers = state => state.players.players
+export const getPlayers = (state, teamId) =>
+  state.players.players.filter(player => player.team === teamId)
