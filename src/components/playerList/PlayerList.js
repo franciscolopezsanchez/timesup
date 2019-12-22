@@ -20,7 +20,7 @@ function PlayerList({ players, createPlayer, removePlayer }) {
 					)
 				})}
 				<li>
-					<PlayerInput />
+					<PlayerInput createPlayer={createPlayer} />
 				</li>
 			</ul>
 		</div>
