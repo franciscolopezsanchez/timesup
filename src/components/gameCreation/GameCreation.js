@@ -1,10 +1,15 @@
-import React from 'react';
-import './GameCreation.css';
+import React from 'react'
+import './GameCreation.css'
+import Title from '../title/Title'
+import PlayerList from '../playerList/PlayerList'
 
 function GameCreation() {
     return (
-        <h1>TIME'S UP</h1>
+        <div>
+            <Title/>
+            <PlayerList/>
+        </div>
       );
 }
 
-export default GameCreation;
+export default GameCreation
