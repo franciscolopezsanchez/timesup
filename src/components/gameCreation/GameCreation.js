@@ -9,6 +9,7 @@ function GameCreation() {
 		<div>
 			<Title />
 			<PlayerList />
+			<PlayerList />
 			<SettingList />
 		</div>
 	)

@@ -1,15 +1,16 @@
 import React from 'react'
 import './PlayerList.css'
+import PlayerInput from '../playerInput/PlayerInput'
+import Player from '../player/Player'
 
 function PlayerList() {
 
     return (
         <div>
-            <input type="text"/>
+            <h3>Equipo Azul</h3>
             <ul>
-                <li>Rocío</li>
-                <li>Cristina</li>
-                <li>Roko</li>
+                <li><Player/></li>
+                <li><PlayerInput/></li>
             </ul>
         </div>
       )
