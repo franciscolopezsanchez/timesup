@@ -9,10 +9,14 @@ const players = (state = initialState, action) => {
     case CREATE_PLAYER:
       return {
         ...state,
-        players: [
-          ...state.players,
-          { name: action.player_name, team: action.team_id }
-        ]
+        players:
+          state.players.filter(player => player.name === action.player_name)
+            .length === 0
+            ? [
+                ...state.players,
+                { name: action.player_name, team: action.team_id }
+              ]
+            : state.players
       }
 
     case REMOVE_PLAYER:
