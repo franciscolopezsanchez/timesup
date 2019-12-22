@@ -1,8 +1,14 @@
 import React from "react"
+import SettingSelector from "../settingSelector/SettingSelector"
 import "./SettingList.css"
 
 function SettingList() {
-	return <h1>SettingList</h1>
+	return (
+		<div>
+			<SettingSelector />
+			<SettingSelector />
+		</div>
+	)
 }
 
 export default SettingList
