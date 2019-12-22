@@ -8,6 +8,7 @@ function GameCreation() {
         <div>
             <Title/>
             <PlayerList/>
+            <PlayerList/>
         </div>
       );
 }
