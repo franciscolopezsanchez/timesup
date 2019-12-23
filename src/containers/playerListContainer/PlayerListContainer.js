@@ -4,12 +4,26 @@ import PlayerList from "../../components/playerList/PlayerList"
 import { createPlayer, removePlayer } from "../../actions/player"
 import { getPlayers } from "../../reducers/player"
 
-const PlayerListContainer = ({ players, charactersURLs }) => {
-	return <PlayerList players={players} />
+const PlayerListContainer = ({
+	teamId,
+	teamName,
+	players,
+	createPlayer,
+	removePlayer
+}) => {
+	return (
+		<PlayerList
+			teamId={teamId}
+			teamName={teamName}
+			players={players}
+			createPlayer={createPlayer}
+			removePlayer={removePlayer}
+		/>
+	)
 }
 
 const mapStateToProps = (state, props) => ({
-	players: getPlayers(state)
+	players: getPlayers(state, props.teamId)
 })
 
 const mapDispatchToProps = dispatch => ({

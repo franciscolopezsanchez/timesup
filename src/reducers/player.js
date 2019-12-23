@@ -1,10 +1,7 @@
 import { CREATE_PLAYER, REMOVE_PLAYER } from "../actions/player"
 
 const initialState = {
-  players: [
-    { name: "Jesus", team: 0 },
-    { name: "Curro", team: 1 }
-  ]
+  players: []
 }
 
 const players = (state = initialState, action) => {
@@ -12,17 +9,21 @@ const players = (state = initialState, action) => {
     case CREATE_PLAYER:
       return {
         ...state,
-        players: [
-          ...state.players,
-          { name: action.player_name, team: action.team_id }
-        ]
+        players:
+          state.players.filter(player => player.name === action.player_name)
+            .length === 0
+            ? [
+                ...state.players,
+                { name: action.player_name, team: action.team_id }
+              ]
+            : state.players
       }
 
     case REMOVE_PLAYER:
       return {
         ...state,
         players: state.players.filter(value => {
-          return value === action.player_name
+          return value.name !== action.player_name
         })
       }
 
@@ -32,4 +33,5 @@ const players = (state = initialState, action) => {
 }
 export default players
 
-export const getPlayers = state => state.players.players
+export const getPlayers = (state, teamId) =>
+  state.players.players.filter(player => player.team === teamId)

@@ -1,10 +1,10 @@
 import React from "react"
 
-function Player({ name }) {
+function Player({ name, removePlayer }) {
 	return (
 		<div>
 			<span>{name}</span>
-			<button>X</button>
+			<button onClick={() => removePlayer(name)}>X</button>
 		</div>
 	)
 }
