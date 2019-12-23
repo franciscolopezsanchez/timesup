@@ -1,5 +1,4 @@
 import React from "react"
-import "./Title.css"
 import { useTranslation } from "react-i18next"
 
 function Title() {
