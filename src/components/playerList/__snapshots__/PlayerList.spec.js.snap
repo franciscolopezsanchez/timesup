@@ -9,7 +9,9 @@ exports[`PlayerList tests renders snapshot 1`] = `
       <li
         class="player"
       >
-        <div>
+        <div
+          class="player"
+        >
           <span>
             jesus
           </span>
@@ -21,7 +23,9 @@ exports[`PlayerList tests renders snapshot 1`] = `
       <li
         class="player"
       >
-        <div>
+        <div
+          class="player"
+        >
           <span>
             rocio
           </span>
@@ -33,7 +37,9 @@ exports[`PlayerList tests renders snapshot 1`] = `
       <li
         class="player"
       >
-        <div>
+        <div
+          class="player"
+        >
           <span>
             cris
           </span>
@@ -45,7 +51,9 @@ exports[`PlayerList tests renders snapshot 1`] = `
       <li
         class="player"
       >
-        <div>
+        <div
+          class="player"
+        >
           <span>
             curro
           </span>
