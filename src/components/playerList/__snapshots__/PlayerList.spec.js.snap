@@ -64,14 +64,7 @@ exports[`PlayerList tests renders snapshot 1`] = `
       </li>
       <li
         class="playerInput"
-      >
-        <div>
-          <input
-            type="text"
-            value=""
-          />
-        </div>
-      </li>
+      />
     </ul>
   </div>
 </DocumentFragment>

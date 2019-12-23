@@ -2,6 +2,7 @@ import React, { useState } from "react"
 
 function PlayerInput({ teamId, createPlayer }) {
 	const [player, setPlayer] = useState("")
+	if (isNaN(teamId)) return null
 	return (
 		<div>
 			<input
