@@ -6,12 +6,22 @@ import LanguageDetector from "i18next-browser-languagedetector"
 const resources = {
   en: {
     translation: {
-      "TIME'S UP": "TIME'S UP!"
+      "TIME'S UP": "TIME'S UP!",
+      Play: "Play",
+      Start: "Start",
+      "Next Round": "Next Round",
+      "Right answer": "Right answer",
+      "Next character": "Next character"
     }
   },
   es: {
     translation: {
-      "TIME'S UP": "TIME'S UP!"
+      "TIME'S UP": "TIME'S UP!",
+      Play: "Jugar",
+      Start: "Comenzar!",
+      "Next Round": "Siguiente Ronda",
+      "Right answer": "CORRECTO",
+      "Next character": "PASAR"
     }
   }
 }
