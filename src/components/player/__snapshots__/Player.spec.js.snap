@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Player tests renders snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="player"
+  >
+    <span>
+      Jesus
+    </span>
+    <button>
+      X
+    </button>
+  </div>
+</DocumentFragment>
+`;

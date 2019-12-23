@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayerList tests renders snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="playerList"
+  >
+    <ul>
+      <li
+        class="player"
+      >
+        <div
+          class="player"
+        >
+          <span>
+            jesus
+          </span>
+          <button>
+            X
+          </button>
+        </div>
+      </li>
+      <li
+        class="player"
+      >
+        <div
+          class="player"
+        >
+          <span>
+            rocio
+          </span>
+          <button>
+            X
+          </button>
+        </div>
+      </li>
+      <li
+        class="player"
+      >
+        <div
+          class="player"
+        >
+          <span>
+            cris
+          </span>
+          <button>
+            X
+          </button>
+        </div>
+      </li>
+      <li
+        class="player"
+      >
+        <div
+          class="player"
+        >
+          <span>
+            curro
+          </span>
+          <button>
+            X
+          </button>
+        </div>
+      </li>
+      <li
+        class="playerInput"
+      />
+    </ul>
+  </div>
+</DocumentFragment>
+`;

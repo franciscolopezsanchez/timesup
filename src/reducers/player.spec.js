@@ -1,8 +1,19 @@
-import players from "./player"
+import players, { getPlayersByTeam } from "./player"
 import { cleanup } from "@testing-library/react"
 
-describe("films reducer", () => {
+describe("player reducer", () => {
   afterEach(cleanup)
+
+  it("should handle default case", () => {
+    expect(
+      players(
+        { players: [] },
+        {
+          type: null
+        }
+      )
+    ).toEqual({ players: [] })
+  })
 
   it("should handle CREATE_PLAYER", () => {
     expect(
@@ -40,5 +51,53 @@ describe("films reducer", () => {
         }
       )
     ).toEqual({ players: [] })
+  })
+
+  it("should handle REMOVE_PLAYER that doesn't exist", () => {
+    expect(
+      players(
+        { players: [{ name: "Jesus", team: 1 }] },
+        {
+          type: "REMOVE_PLAYER",
+          player_name: "Curro"
+        }
+      )
+    ).toEqual({ players: [{ name: "Jesus", team: 1 }] })
+  })
+
+  it("getPlayersByTeam should handle undefined state", () => {
+    // Arrange
+    const initialState = undefined
+    // Act
+    const players = getPlayersByTeam(initialState, 0).players
+    // Assert
+    expect(players.length).toEqual(0)
+  })
+
+  it("getPlayersByTeam should handle empty state", () => {
+    // Arrange
+    const initialState = { players: [] }
+    // Act
+    const players = getPlayersByTeam(initialState, 0).players
+    // Assert
+    expect(players.length).toEqual(0)
+  })
+
+  it("getPlayersByTeam should return empty array if player is not in the team requested", () => {
+    // Arrange
+    const initialState = { players: [{ name: "Jesus", team: 1 }] }
+    // Act
+    const players = getPlayersByTeam(initialState, 0).players
+    // Assert
+    expect(players.length).toEqual(0)
+  })
+
+  it("getPlayersByTeam should return player if it's in the team requested", () => {
+    // Arrange
+    const initialState = { players: { players: [{ name: "Jesus", team: 1 }] } }
+    // Act
+    const players = getPlayersByTeam(initialState, 1)
+    // Assert
+    expect(players).toContainEqual({ name: "Jesus", team: 1 })
   })
 })
