@@ -6,7 +6,7 @@ import TurnInfo from "../turnInfo/TurnInfo"
 import {useTranslation} from "react-i18next"
 import ActionButton from "../actionButton/ActionButton"
 
-function RoundInstructions({round, playerPlaying, startRound}) {
+function RoundInstructions({round, playerPlaying, startPlaying}) {
 	const {t} = useTranslation()
 
 	return (
@@ -14,7 +14,7 @@ function RoundInstructions({round, playerPlaying, startRound}) {
 			<Title />
 			<InstructionsField round={round} />
 			<TurnInfo playerPlaying={playerPlaying} />
-			<ActionButton buttonText={t("Start")} handler={startRound} />
+			<ActionButton buttonText={t("Start")} handler={startPlaying} />
 		</div>
 	)
 }

@@ -9,8 +9,12 @@ function GameController() {
 	const [playerPlaying, setPlayerPlaying] = useState("CALCULATE PLAYER PLAYING")
 	const [roundFinished, setRoundFinished] = useState(false)
 
-	const startRoundHandler = () => {
+	const startPlayingHandler = () => {
 		setPlaying(true)
+	}
+
+	const finishPlayingHandler = () => {
+		setPlaying(false)
 	}
 
 	return (
@@ -19,10 +23,14 @@ function GameController() {
 				<RoundInstructions
 					round={round}
 					playerPlaying={playerPlaying}
-					startRound={startRoundHandler}
+					startPlaying={startPlayingHandler}
 				/>
 			) : (
-				<TurnView round={round} playerPlaying={playerPlaying} />
+				<TurnView
+					round={round}
+					playerPlaying={playerPlaying}
+					finishPlaying={finishPlayingHandler}
+				/>
 			)}
 			{roundFinished && <StatsView />}
 		</div>
