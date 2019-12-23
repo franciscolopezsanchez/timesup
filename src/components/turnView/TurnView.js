@@ -17,8 +17,6 @@ function TurnView() {
 			<TurnTimer />
 			<ActionButton buttonText={t("Right answer")} />
 			<ActionButton buttonText={t("Next character")} />
-			<ActionButton />
-			<ActionButton />
 		</div>
 	)
 }

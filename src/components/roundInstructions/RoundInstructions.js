@@ -5,19 +5,16 @@ import InstructionsField from "../instructionsField/InstructionsField"
 import TurnInfo from "../turnInfo/TurnInfo"
 import {useTranslation} from "react-i18next"
 import ActionButton from "../actionButton/ActionButton"
-import {Link} from "react-router-dom"
 
-function RoundInstructions() {
+function RoundInstructions({round, playerPlaying, startRound}) {
 	const {t} = useTranslation()
 
 	return (
 		<div>
 			<Title />
-			<InstructionsField />
-			<TurnInfo />
-			<Link to="/play">
-				<ActionButton buttonText={t("Start")} />
-			</Link>
+			<InstructionsField round={round} />
+			<TurnInfo playerPlaying={playerPlaying} />
+			<ActionButton buttonText={t("Start")} handler={startRound} />
 		</div>
 	)
 }

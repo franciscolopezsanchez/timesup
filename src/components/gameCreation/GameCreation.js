@@ -16,7 +16,7 @@ function GameCreation() {
 			<PlayerListContainer teamId={0} teamName="Equipo Azul" />
 			<PlayerListContainer teamId={1} teamName="Equipo Amarillo" />
 			<SettingList />
-			<Link to="/round">
+			<Link to="/play">
 				<ActionButton buttonText={t("Play")} />
 			</Link>
 		</div>

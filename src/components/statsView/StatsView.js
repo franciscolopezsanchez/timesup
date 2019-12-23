@@ -13,7 +13,6 @@ function StatsView() {
 			<Title />
 			<TeamScore />
 			<TeamScore />
-			<ActionButton />
 			<Link to="/play">
 				<ActionButton buttonText={t("Next Round")} />
 			</Link>
