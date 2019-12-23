@@ -41,4 +41,16 @@ describe("films reducer", () => {
       )
     ).toEqual({ players: [] })
   })
+
+  it("should handle REMOVE_PLAYER that doesn't exist", () => {
+    expect(
+      players(
+        { players: [{ name: "Jesus", team: 1 }] },
+        {
+          type: "REMOVE_PLAYER",
+          player_name: "Curro"
+        }
+      )
+    ).toEqual({ players: [{ name: "Jesus", team: 1 }] })
+  })
 })

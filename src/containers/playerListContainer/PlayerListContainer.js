@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import PlayerList from "../../components/playerList/PlayerList"
 import { createPlayer, removePlayer } from "../../actions/player"
-import { getPlayers } from "../../reducers/player"
+import { getPlayersByTeam } from "../../reducers/player"
 
 const PlayerListContainer = ({
 	teamId,
@@ -23,7 +23,7 @@ const PlayerListContainer = ({
 }
 
 const mapStateToProps = (state, props) => ({
-	players: getPlayers(state, props.teamId)
+	players: getPlayersByTeam(state, props.teamId)
 })
 
 const mapDispatchToProps = dispatch => ({
