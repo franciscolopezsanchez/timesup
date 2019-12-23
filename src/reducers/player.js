@@ -33,5 +33,9 @@ const players = (state = initialState, action) => {
 }
 export default players
 
-export const getPlayersByTeam = (state, teamId) =>
-  state.players.players.filter(player => player.team === teamId)
+export const getPlayersByTeam = (state, teamId) => {
+  if (!state || !state.players || !state.players.players) {
+    return initialState
+  }
+  return state.players.players.filter(player => player.team === teamId)
+}
