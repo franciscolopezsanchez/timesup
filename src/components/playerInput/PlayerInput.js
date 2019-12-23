@@ -9,7 +9,7 @@ function PlayerInput({ teamId, createPlayer }) {
 				value={player}
 				onChange={e => setPlayer(e.target.value)}
 				onBlur={() => {
-					createPlayer(player, teamId)
+					if (player) createPlayer(player, teamId)
 					setPlayer("")
 				}}
 			/>
