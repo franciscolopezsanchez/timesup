@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from 'prop-types';
 
 function Player({ name, removePlayer }) {
 	if (!name) return null
@@ -9,5 +10,10 @@ function Player({ name, removePlayer }) {
 		</div>
 	)
 }
+
+Player.propTypes = {
+	name: PropTypes.string,
+	removePlayer: PropTypes.func
+};
 
 export default Player
