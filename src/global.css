@@ -1,0 +1,11 @@
+:root {
+  --white: #fff;
+  --primary: #5b4cea;
+}
+
+html,
+body,
+[id='root'] {
+  height: 100%;
+  font-family: 'Basier Circle';
+}
