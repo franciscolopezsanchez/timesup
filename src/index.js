@@ -5,6 +5,7 @@ import { createStore } from "redux"
 import reducer from "./reducers/index"
 import "./i18n"
 import App from "./components/app/App"
+import 'minireset.css'
 import './global.css'
 
 const store = createStore(reducer)
