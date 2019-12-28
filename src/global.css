@@ -7,5 +7,5 @@ html,
 body,
 [id='root'] {
   height: 100%;
-  font-family: 'Basier Circle';
+  font-family: 'Roboto', sans-serif;
 }
