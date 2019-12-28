@@ -1,16 +1,22 @@
-import React from "react"
+import React, {useState} from "react"
 import "./SettingSelector.css"
 
-function SettingSelector() {
+function SettingSelector({text, defaultValue, maxValue, minValue, stepValue}) {
+	const [selectorValue, setSelectorValue] = useState(defaultValue)
+
+	function handleChange(event){
+		setSelectorValue(event.target.value)
+	}
 	return (
 		<div>
-			<p>Número de personajes por jugador</p>
+			<p>{selectorValue + " " + text}</p>
 			<input
 				type="range"
-				min="3"
-				max="10"
-				value="5"
-				onChange={() => null}
+				min={minValue}
+				max={maxValue}
+				step={stepValue}
+				value={selectorValue}
+				onChange={handleChange}
 			/>
 		</div>
 	)
