@@ -2,13 +2,15 @@ import React, {useState} from "react"
 import "./SettingSelector.css"
 import { useTranslation } from "react-i18next"
 
-function SettingSelector({text, defaultValue, maxValue, minValue, stepValue}) {
+function SettingSelector({id, text, defaultValue, maxValue, minValue, stepValue, onSetSetting}) {
 	const { t } = useTranslation()
 
 	const [selectorValue, setSelectorValue] = useState(defaultValue)
 
 	function handleChange(event){
 		setSelectorValue(event.target.value)
+		console.log(selectorValue)
+		onSetSetting(id, selectorValue)
 	}
 	return (
 		<div>
