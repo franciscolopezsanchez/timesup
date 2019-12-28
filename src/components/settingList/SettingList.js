@@ -1,14 +1,13 @@
 import React from "react"
 import SettingSelector from "../settingSelector/SettingSelector"
 import "./SettingList.css"
-import SETTINGS from "../../settings-config"
 
-function SettingList() {
+function SettingList({settings}) {
 
 	return (
-		SETTINGS.map(setting => {
+		settings.map(setting => {
 			return <SettingSelector 
-						text={setting.text}
+						text={setting.textKey}
 						defaultValue={setting.defaultValue} 
 						maxValue={setting.maxValue} 
 						minValue={setting.minValue}

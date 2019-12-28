@@ -1,7 +1,10 @@
 import React, {useState} from "react"
 import "./SettingSelector.css"
+import { useTranslation } from "react-i18next"
 
 function SettingSelector({text, defaultValue, maxValue, minValue, stepValue}) {
+	const { t } = useTranslation()
+
 	const [selectorValue, setSelectorValue] = useState(defaultValue)
 
 	function handleChange(event){
@@ -9,7 +12,7 @@ function SettingSelector({text, defaultValue, maxValue, minValue, stepValue}) {
 	}
 	return (
 		<div>
-			<p>{selectorValue + " " + text}</p>
+			<p>{selectorValue + " " + t(text)}</p>
 			<input
 				type="range"
 				min={minValue}

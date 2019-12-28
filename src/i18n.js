@@ -11,7 +11,9 @@ const resources = {
       Start: "Start",
       "Next Round": "Next Round",
       "Right answer": "Right answer",
-      "Next character": "Next character"
+      "Next character": "Next character",
+      "Characters per player": "Characters per player",
+      "Seconds per turn": "Seconds per turn"
     }
   },
   es: {
@@ -21,7 +23,21 @@ const resources = {
       Start: "Comenzar!",
       "Next Round": "Siguiente Ronda",
       "Right answer": "CORRECTO",
-      "Next character": "PASAR"
+      "Next character": "PASAR",
+      "Characters per player": "Personajes por jugador",
+      "Seconds per turn": "Segundos por turno"
+    }
+  },
+  fr: {
+    translation: {
+      "TIME'S UP": "TIME'S UP!",
+        Play: "Jouer",
+        Start: "Commencer!",
+        "Next Round": "Prochain Tour",
+        "Right answer": "CORRECT",
+        "Next character": "PASSER",
+        "Characters per player": "Caractères par jouer",
+        "Seconds per turn": "Secondes par tour"
     }
   }
 }
