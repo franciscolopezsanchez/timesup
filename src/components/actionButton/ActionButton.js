@@ -1,13 +1,11 @@
 import React from "react"
-import styles from "./ActionButton.module.scss"
+import styles from "./ActionButton.module.css"
 
 function ActionButton({buttonText, handler}) {
 	if (!buttonText) return null
 	if (!handler) handler = () => null
 	return (
-		<div className={styles.actionButton}>
-			<button onClick={() => handler()}>{buttonText}</button>
-		</div>
+		<button className={styles.button} onClick={() => handler()}>{buttonText}</button>
 	)
 }
 
