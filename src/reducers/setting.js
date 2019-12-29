@@ -5,14 +5,16 @@ const initialState = {
 }
 
 const settings = (state = initialState, action) => {
+  console.log(state)
+  console.log(action)
   switch (action.type) {
     case SET_SETTING:
       return {
             ...state,
             settings:
-                state.settings.filter(setting => setting.id === action.id).length === 0 
-                    ? [...state.settings,{id: action.id, value: action.value}]
-                    : [...state.settings.filter(setting => setting.id !== action.id), {id: action.id, value: action.value}]
+                state.settings.filter(setting => setting.id === action.payload.id).length === 0
+                    ? [...state.settings,{id: action.payload.id, value: action.payload.value}]
+                    : [...state.settings.map(setting => setting.id === action.payload.id? {id: action.payload.id, value: parseInt(action.payload.value)} : setting)]
         }
     default:
       return state
