@@ -1,12 +1,15 @@
 import React from "react"
+import PropTypes from 'prop-types';
 import styles from "./ActionButton.module.css"
 
-function ActionButton({buttonText, handler}) {
-	if (!buttonText) return null
-	if (!handler) handler = () => null
+function Button({children, onClick = () => null}) {
 	return (
-		<button className={styles.button} onClick={() => handler()}>{buttonText}</button>
+		<button className={styles.button} onClick={onClick}>{children}</button>
 	)
 }
+
+ActionButton.propTypes = {
+	onClick: PropTypes.func
+};
 
 export default ActionButton

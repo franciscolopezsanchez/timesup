@@ -1,7 +1,7 @@
 import React from "react"
 import "./PlayerList.css"
 import PlayerInput from "../playerInput/PlayerInput"
-import Player from "../player/Player"
+import Index from "../player/Player"
 
 function PlayerList({ teamId, teamName, players, createPlayer, removePlayer }) {
 	if (!players) return null
@@ -12,7 +12,7 @@ function PlayerList({ teamId, teamName, players, createPlayer, removePlayer }) {
 				{players.map(player => {
 					return (
 						<li key={player.name} className="player">
-							<Player
+							<Index
 								name={player.name}
 								removePlayer={removePlayer}
 							/>

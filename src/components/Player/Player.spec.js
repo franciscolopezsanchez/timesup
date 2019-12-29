@@ -1,6 +1,6 @@
 import React from "react"
 import { render, cleanup, fireEvent } from "@testing-library/react"
-import Player from "./Player"
+import Player from "./"
 
 afterEach(cleanup)
 
