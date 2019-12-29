@@ -9,7 +9,6 @@ function SettingSelector({id, text, defaultValue, maxValue, minValue, stepValue,
 
 	function handleChange(event){
 		setSelectorValue(event.target.value)
-		console.log(selectorValue)
 		onSetSetting(id, selectorValue)
 	}
 	return (

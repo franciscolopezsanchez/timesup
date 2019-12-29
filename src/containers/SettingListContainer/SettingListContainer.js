@@ -5,9 +5,7 @@ import { setSetting } from "../../actions/setting"
  
 
 const SettingListContainer = ({settings, setSetting}) => {
-	return (
-		<SettingList settings={settings} onSetSetting={setSetting}/>
-	)
+	return <SettingList settings={settings} onSetSetting={setSetting}/>
 }
 
 const mapStateToProps = (state, props) => ({
