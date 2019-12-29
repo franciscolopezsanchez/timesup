@@ -1,16 +1,26 @@
-import React from "react"
+import React, {useState} from "react"
 import "./SettingSelector.css"
+import { useTranslation } from "react-i18next"
 
-function SettingSelector() {
+function SettingSelector({id, text, defaultValue, maxValue, minValue, stepValue, onSetSetting}) {
+	const { t } = useTranslation()
+
+	const [selectorValue, setSelectorValue] = useState(defaultValue)
+
+	function handleChange(event){
+		setSelectorValue(event.target.value)
+		onSetSetting(id, selectorValue)
+	}
 	return (
 		<div>
-			<p>Número de personajes por jugador</p>
+			<p>{selectorValue + " " + t(text)}</p>
 			<input
 				type="range"
-				min="3"
-				max="10"
-				value="5"
-				onChange={() => null}
+				min={minValue}
+				max={maxValue}
+				step={stepValue}
+				value={selectorValue}
+				onChange={handleChange}
 			/>
 		</div>
 	)
