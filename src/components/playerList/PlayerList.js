@@ -1,6 +1,6 @@
 import React from "react"
 import "./PlayerList.css"
-import PlayerInput from "../playerInput/PlayerInput"
+import PlayerInput from "../PlayerInput"
 import Player from "../Player"
 
 function PlayerList({teamId, teamName, players, createPlayer, removePlayer}) {
