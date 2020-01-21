@@ -1,7 +1,7 @@
 import React from "react"
 import "./PlayerList.css"
 import PlayerInput from "../playerInput/PlayerInput"
-import Player from "../player"
+import Player from "../Player"
 
 function PlayerList({teamId, teamName, players, createPlayer, removePlayer}) {
   if (!players) return null
