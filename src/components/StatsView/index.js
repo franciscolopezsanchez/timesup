@@ -1,5 +1,5 @@
 import React from "react"
-import TeamScore from "../teamScore/TeamScore"
+import TeamScore from "../TeamScore"
 import ActionButton from "../ActionButton"
 import {useTranslation} from "react-i18next"
 import {Link} from "react-router-dom"
