@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import RoundInstructions from "../RoundInstructions"
-import TurnView from "../turnView/TurnView"
+import TurnView from "../TurnView"
 import StatsView from "../StatsView"
 
 function GameController() {

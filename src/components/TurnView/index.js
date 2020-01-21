@@ -1,5 +1,5 @@
 import React from "react"
-import TurnScore from "../turnScore/TurnScore"
+import TurnScore from "../TurnScore"
 import CharacterCard from "../CharacterCard"
 import Timer from "../Timer"
 import ActionButton from "../ActionButton"

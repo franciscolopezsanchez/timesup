@@ -1,6 +1,6 @@
 import React from "react"
 import InstructionsField from "../InstructionsField"
-import TurnInfo from "../turnInfo/TurnInfo"
+import TurnInfo from "../TurnInfo"
 import {useTranslation} from "react-i18next"
 import ActionButton from "../ActionButton"
 
