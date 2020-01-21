@@ -1,10 +1,10 @@
-import React from "./node_modules/react"
+import React from "react"
 import "./GameCreation.css"
 import PlayerListContainer from "../../containers/playerListContainer/PlayerListContainer"
 import SettingListContainer from "../../containers/SettingListContainer/SettingListContainer"
 import ActionButton from "../actionButton/ActionButton"
-import {useTranslation} from "./node_modules/react-i18next"
-import {Link} from "./node_modules/react-router-dom"
+import {useTranslation} from "react-i18next"
+import {Link} from "react-router-dom"
 import SETTINGS from "../../config-files/settings-config"
 
 function GameCreation() {

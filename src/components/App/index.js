@@ -1,4 +1,4 @@
-import React from "./node_modules/react"
+import React from "react"
 import {BrowserRouter as Router, Switch, Route} from "./node_modules/react-router-dom"
 import styles from "./App.module.css"
 import Title from "../title/Title"

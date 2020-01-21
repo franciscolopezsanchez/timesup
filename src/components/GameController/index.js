@@ -1,4 +1,4 @@
-import React, {useState} from "./node_modules/react"
+import React, {useState} from "react"
 import RoundInstructions from "../roundInstructions/RoundInstructions"
 import TurnView from "../turnView/TurnView"
 import StatsView from "../statsView/StatsView"
