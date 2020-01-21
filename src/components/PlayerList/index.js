@@ -1,5 +1,4 @@
 import React from "react"
-import "./PlayerList.css"
 import PlayerInput from "../PlayerInput"
 import Player from "../Player"
 
