@@ -2,7 +2,7 @@ import React from "react"
 import Title from "../title/Title"
 import TurnScore from "../turnScore/TurnScore"
 import CharacterCard from "../CharacterCard"
-import Timer from "../timer/Timer"
+import Timer from "../Timer"
 import ActionButton from "../ActionButton"
 import {useTranslation} from "react-i18next"
 
