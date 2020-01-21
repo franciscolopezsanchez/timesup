@@ -1,5 +1,4 @@
 import React from "react"
-import "./RoundInstructions.css"
 import InstructionsField from "../instructionsField/InstructionsField"
 import TurnInfo from "../turnInfo/TurnInfo"
 import {useTranslation} from "react-i18next"
