@@ -1,9 +1,9 @@
 import React from "react"
-import {BrowserRouter as Router, Switch, Route} from "./node_modules/react-router-dom"
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
 import styles from "./App.module.css"
 import Title from "../title/Title"
-import GameCreation from "../gameCreation/GameCreation"
-import GameController from "../gameController/GameController"
+import GameCreation from "../GameCreation"
+import GameController from "../GameController"
 
 function App() {
   return (

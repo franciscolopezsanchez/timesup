@@ -1,5 +1,5 @@
 import React from "react"
-import SettingSelector from "../settingSelector/SettingSelector"
+import SettingSelector from "../SettingSelector/"
 
 function SettingList({settings, onSetSetting}) {
   return settings.map(setting => {

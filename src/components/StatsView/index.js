@@ -1,6 +1,6 @@
 import React from "react"
 import TeamScore from "../teamScore/TeamScore"
-import ActionButton from "../actionButton/ActionButton"
+import ActionButton from "../ActionButton"
 import {useTranslation} from "react-i18next"
 import {Link} from "react-router-dom"
 
