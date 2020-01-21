@@ -1,5 +1,4 @@
 import React from "react"
-import Title from "../title/Title"
 import TurnScore from "../turnScore/TurnScore"
 import CharacterCard from "../CharacterCard"
 import Timer from "../Timer"
@@ -11,7 +10,6 @@ function TurnView({finishPlaying}) {
 
   return (
     <div>
-      <Title />
       <TurnScore />
       <CharacterCard />
       <Timer seconds={3} handler={finishPlaying} />

@@ -1,7 +1,7 @@
 import React from "react"
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
 import styles from "./App.module.css"
-import Title from "../title/Title"
+import Title from "../Title"
 import GameCreation from "../GameCreation"
 import GameController from "../GameController"
 
