@@ -1,7 +1,7 @@
 import React, {useState} from "react"
-import RoundInstructions from "../RoundInstructions"
-import TurnView from "../TurnView"
-import StatsView from "../StatsView"
+import RoundInstructions from "../roundInstructions"
+import TurnView from "../turnView"
+import StatsView from "../statsView"
 
 function GameController() {
   const [round, setRound] = useState(1)

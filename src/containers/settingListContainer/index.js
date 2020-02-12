@@ -1,6 +1,7 @@
 import React from "react"
 import {connect} from "react-redux"
-import SettingList from "../../components/SettingList"
+import SettingList from "../../components/settingList"
+
 import {setSetting} from "../../actions/setting"
 
 const SettingListContainer = ({settings, setSetting}) => {

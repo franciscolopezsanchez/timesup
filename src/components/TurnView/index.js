@@ -1,8 +1,9 @@
 import React from "react"
-import TurnScore from "../TurnScore"
-import CharacterCard from "../CharacterCard"
-import Timer from "../Timer"
-import ActionButton from "../ActionButton"
+import TurnScore from "../turnScore"
+import CharacterCard from "../characterCard"
+import Timer from "../timer"
+import ActionButton from "../actionButton"
+
 import {useTranslation} from "react-i18next"
 
 function TurnView({finishPlaying}) {

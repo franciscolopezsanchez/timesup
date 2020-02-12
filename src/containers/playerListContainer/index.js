@@ -1,6 +1,6 @@
 import React from "react"
 import {connect} from "react-redux"
-import PlayerList from "../../components/PlayerList"
+import PlayerList from "../../components/playerList"
 import {createPlayer, removePlayer} from "../../actions/player"
 import {getPlayersByTeam} from "../../reducers/player"
 

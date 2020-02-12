@@ -1,9 +1,11 @@
 import React from "react"
-import PlayerListContainer from "../../containers/playerListContainer/PlayerListContainer"
-import SettingListContainer from "../../containers/SettingListContainer/SettingListContainer"
-import ActionButton from "../ActionButton"
+import PlayerListContainer from "../../containers/playerListContainer"
+import SettingListContainer from "../../containers/settingListContainer"
+import ActionButton from "../actionButton"
+
 import {useTranslation} from "react-i18next"
 import {Link} from "react-router-dom"
+
 import SETTINGS from "../../config-files/settings-config"
 
 function GameCreation() {

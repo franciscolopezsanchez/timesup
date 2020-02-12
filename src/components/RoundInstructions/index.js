@@ -1,8 +1,9 @@
 import React from "react"
-import InstructionsField from "../InstructionsField"
-import TurnInfo from "../TurnInfo"
+import InstructionsField from "../instructionsField"
+import TurnInfo from "../turnInfo"
+import ActionButton from "../actionButton"
+
 import {useTranslation} from "react-i18next"
-import ActionButton from "../ActionButton"
 
 function RoundInstructions({round, playerPlaying, startPlaying}) {
   const {t} = useTranslation()
