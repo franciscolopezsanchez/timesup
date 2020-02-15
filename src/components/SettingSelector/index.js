@@ -1,4 +1,5 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
+import "./SettingSelector.css"
 import {useTranslation} from "react-i18next"
 
 function SettingSelector({
@@ -11,8 +12,11 @@ function SettingSelector({
   onSetSetting,
 }) {
   const {t} = useTranslation()
-
   const [selectorValue, setSelectorValue] = useState(defaultValue)
+
+  useEffect(() => {
+    onSetSetting(id, selectorValue)
+  }, [])
 
   function handleChange(event) {
     setSelectorValue(event.target.value)
