@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react"
-import "./SettingSelector.css"
 import {useTranslation} from "react-i18next"
 
 function SettingSelector({
