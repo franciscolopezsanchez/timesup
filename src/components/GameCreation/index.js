@@ -1,6 +1,6 @@
 import React from "react"
 import {connect} from "react-redux"
-import {createGame} from "../../actions/game"
+import {createGame, startNewRound} from "../../actions/game"
 
 import PlayerListContainer from "../../containers/playerListContainer"
 import SettingListContainer from "../../containers/settingListContainer"
@@ -29,7 +29,10 @@ function GameCreation({createGame}) {
 const mapStateToProps = (state, props) => ({})
 
 const mapDispatchToProps = dispatch => ({
-  createGame: () => dispatch(createGame()),
+  createGame: () => {
+    dispatch(createGame())
+    dispatch(startNewRound())
+  },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameCreation)
