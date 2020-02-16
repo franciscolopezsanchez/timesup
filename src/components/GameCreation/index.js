@@ -1,4 +1,7 @@
 import React from "react"
+import {connect} from "react-redux"
+import {createGame} from "../../actions/game"
+
 import PlayerListContainer from "../../containers/playerListContainer"
 import SettingListContainer from "../../containers/settingListContainer"
 import ActionButton from "../actionButton"
@@ -8,7 +11,7 @@ import {Link} from "react-router-dom"
 
 import SETTINGS from "../../config-files/settings-config"
 
-function GameCreation() {
+function GameCreation({createGame}) {
   const {t} = useTranslation()
 
   return (
@@ -17,10 +20,16 @@ function GameCreation() {
       <PlayerListContainer teamId={1} teamName="Equipo Amarillo" />
       <SettingListContainer settings={SETTINGS} />
       <Link to="/play">
-        <ActionButton buttonText={t("Play")} />
+        <ActionButton buttonText={t("Play")} handler={createGame} />
       </Link>
     </div>
   )
 }
 
-export default GameCreation
+const mapStateToProps = (state, props) => ({})
+
+const mapDispatchToProps = dispatch => ({
+  createGame: () => dispatch(createGame()),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(GameCreation)
