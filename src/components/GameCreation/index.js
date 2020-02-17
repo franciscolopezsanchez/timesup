@@ -1,6 +1,7 @@
 import React from "react"
 import {connect} from "react-redux"
 import {createGame, startNewRound} from "../../actions/game"
+import {selectCharacters} from "../../actions/characters"
 
 import PlayerListContainer from "../../containers/playerListContainer"
 import SettingListContainer from "../../containers/settingListContainer"
@@ -32,6 +33,7 @@ const mapDispatchToProps = dispatch => ({
   createGame: () => {
     dispatch(createGame())
     dispatch(startNewRound())
+    dispatch(selectCharacters())
   },
 })
 
