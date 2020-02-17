@@ -9,18 +9,9 @@ describe("Player tests", () => {
     // Arrange
     const name = undefined
     // Act
-    const {container} = render(<Player name={name} />)
+    const {getByText} = render(<Player name={name} />)
     // Assert
-    expect(container.firstChild).toBeFalsy()
-  })
-
-  test("Player handles empty name as argument", () => {
-    // Arrange
-    const name = ""
-    // Act
-    const {container} = render(<Player name={name} />)
-    // Assert
-    expect(container.firstChild).toBeFalsy()
+    expect(getByText("Unknown")).toBeTruthy()
   })
 
   test("Player handles a name as argument", () => {
@@ -38,7 +29,7 @@ describe("Player tests", () => {
     const name = "Jesus"
     const removePlayer = jest.fn()
     // Act
-    render(<Player name={name} removePlayer={removePlayer} />)
+    render(<Player name={name} onRemovePlayer={removePlayer} />)
     const button = document.querySelector("button")
     fireEvent.click(button)
 
