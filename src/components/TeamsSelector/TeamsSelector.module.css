@@ -1,0 +1,17 @@
+.layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-rows: 150px;
+    grid-gap: 10px;
+}
+
+.cardAddTeam {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addTeam {
+    width: 100px;
+    height: 100px;
+}

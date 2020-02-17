@@ -3,14 +3,18 @@
 exports[`Player tests renders snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="player"
+    class="row"
   >
-    <span>
+    <img
+      alt="Jesus"
+      class="avatar"
+      src="https://api.adorable.io/avatars/50/Jesus@adorable.png"
+    />
+    <span
+      class="name"
+    >
       Jesus
     </span>
-    <button>
-      X
-    </button>
   </div>
 </DocumentFragment>
 `;
