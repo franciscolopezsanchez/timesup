@@ -22,9 +22,9 @@ function GameCreation({createGame, charactersPerPlayer, numberOfPlayers}) {
       <SettingListContainer settings={SETTINGS} />
       <Link to="/play">
         <ActionButton
-          disabled={numberOfPlayers < 3}
+          disabled={numberOfPlayers < 4}
           buttonText={t("Play")}
-          handler={() => createGame(charactersPerPlayer * numberOfPlayers)}
+          handler={() => createGame(charactersPerPlayer.value * numberOfPlayers)}
         />
       </Link>
     </div>

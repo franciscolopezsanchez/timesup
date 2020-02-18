@@ -9,7 +9,7 @@ const initialState = {
 const characters = (state = initialState, action) => {
   switch (action.type) {
     case SELECT_CHARACTERS:
-      const characters = GetRandomCharacters(action.charactersPerPlayer.value)
+      const characters = GetRandomCharacters(action.characters)
       return {...state, characters: characters}
 
     default:
