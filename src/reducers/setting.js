@@ -25,3 +25,8 @@ const settings = (state = initialState, action) => {
   }
 }
 export default settings
+
+export const getCharactersPerPlayer = state =>
+  state.settings.settings.find(setting => {
+    return setting.id === "CHARACTERS_PER_PLAYER"
+  })

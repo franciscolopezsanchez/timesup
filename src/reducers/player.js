@@ -1,7 +1,12 @@
 import {CREATE_PLAYER, REMOVE_PLAYER} from "../actions/player"
 
 const initialState = {
-  players: [],
+  players: [
+    {name: "cris", team: 0},
+    {name: "curro", team: 0},
+    {name: "jesus", team: 1},
+    {name: "ro", team: 1},
+  ],
 }
 
 const players = (state = initialState, action) => {
@@ -35,3 +40,5 @@ export const getPlayersByTeam = (state, teamId) => {
   }
   return state.players.players.filter(player => player.team === teamId)
 }
+
+export const getNumberOfPlayers = state => state.players.players.length

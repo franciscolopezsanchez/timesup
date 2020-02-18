@@ -2,6 +2,8 @@ import React from "react"
 import {connect} from "react-redux"
 import {createGame, startNewRound} from "../../actions/game"
 import {selectCharacters} from "../../actions/characters"
+import {getCharactersPerPlayer} from "../../reducers/setting"
+import {getNumberOfPlayers} from "../../reducers/player"
 
 import PlayerListContainer from "../../containers/playerListContainer"
 import SettingListContainer from "../../containers/settingListContainer"
@@ -32,10 +34,8 @@ function GameCreation({createGame, charactersPerPlayer, numberOfPlayers}) {
 }
 
 const mapStateToProps = (state, props) => ({
-  charactersPerPlayer: state.settings.settings.find(setting => {
-    return setting.id === "CHARACTERS_PER_PLAYER"
-  }),
-  numberOfPlayers: state.players.players.length,
+  charactersPerPlayer: getCharactersPerPlayer(state),
+  numberOfPlayers: getNumberOfPlayers(state),
 })
 
 const mapDispatchToProps = dispatch => ({
