@@ -1,12 +1,7 @@
 import {CREATE_PLAYER, REMOVE_PLAYER} from "../actions/player"
 
 const initialState = {
-  players: [
-    {name: "cris", team: 0},
-    {name: "curro", team: 0},
-    {name: "jesus", team: 1},
-    {name: "ro", team: 1},
-  ],
+  players: [],
 }
 
 const players = (state = initialState, action) => {
