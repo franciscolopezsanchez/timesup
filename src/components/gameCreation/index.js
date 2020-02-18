@@ -12,7 +12,7 @@ import {Link} from "react-router-dom"
 
 import SETTINGS from "../../config-files/settings-config"
 
-function GameCreation({createGame}) {
+function GameCreation({createGame, charactersPerPlayer}) {
   const {t} = useTranslation()
 
   return (
@@ -21,19 +21,24 @@ function GameCreation({createGame}) {
       <PlayerListContainer teamId={1} teamName="Equipo Amarillo" />
       <SettingListContainer settings={SETTINGS} />
       <Link to="/play">
-        <ActionButton buttonText={t("Play")} handler={createGame} />
+        <ActionButton buttonText={t("Play")} handler={createGame(charactersPerPlayer)} />
+        {`hola` + charactersPerPlayer}
       </Link>
     </div>
   )
 }
 
-const mapStateToProps = (state, props) => ({})
+const mapStateToProps = (state, props) => ({
+  charactersPerPlayer: state.settings.find(setting => {
+    return setting.id === "CHARACTERS_PER_PLAYER"
+  }).value,
+})
 
 const mapDispatchToProps = dispatch => ({
-  createGame: () => {
+  createGame: charactersPerPlayer => {
     dispatch(createGame())
     dispatch(startNewRound())
-    dispatch(selectCharacters())
+    dispatch(selectCharacters(charactersPerPlayer))
   },
 })
 
