@@ -1,4 +1,4 @@
-import CHARACTERS from "../data/CharactersData"
+import CHARACTERS from "../data/charactersData"
 
 function GetRandomCharacters(numberOfCharacters) {
   let randomPositions = GenerateRandomPositions(numberOfCharacters, CHARACTERS.length)
