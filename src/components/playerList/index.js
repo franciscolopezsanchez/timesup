@@ -11,7 +11,7 @@ function PlayerList({teamId, teamName, players, createPlayer, removePlayer}) {
         {players.map(player => {
           return (
             <li key={player.name} className="player">
-              <Player name={player.name} removePlayer={removePlayer} />
+              <Player name={player.name} onRemovePlayer={removePlayer} />
             </li>
           )
         })}
