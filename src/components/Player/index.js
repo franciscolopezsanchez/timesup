@@ -11,7 +11,7 @@ function Player({name = "Unknown", onRemovePlayer}) {
         alt={name}
       />
       <span className={styles.name}>{name}</span>
-      {onRemovePlayer && <button onClick={onRemovePlayer}>X</button>}
+      {onRemovePlayer && <button onClick={() => onRemovePlayer(name)}>X</button>}
     </div>
   )
 }
