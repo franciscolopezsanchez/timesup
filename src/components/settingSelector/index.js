@@ -19,7 +19,7 @@ function SettingSelector({
 
   function handleChange(event) {
     setSelectorValue(event.target.value)
-    onSetSetting(id, selectorValue)
+    onSetSetting(id, event.target.value)
   }
   return (
     <div>
