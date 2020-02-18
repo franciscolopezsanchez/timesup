@@ -1,0 +1,19 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+}
+
+.avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.name {
+  margin: 0 8px;
+  font-size: 15px;
+  line-height: 24px;
+  flex: 1;
+}

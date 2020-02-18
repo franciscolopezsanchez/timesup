@@ -10,56 +10,72 @@ exports[`PlayerList tests renders snapshot 1`] = `
         class="player"
       >
         <div
-          class="player"
+          class="row"
         >
-          <span>
+          <img
+            alt="jesus"
+            class="avatar"
+            src="https://api.adorable.io/avatars/50/jesus@adorable.png"
+          />
+          <span
+            class="name"
+          >
             jesus
           </span>
-          <button>
-            X
-          </button>
         </div>
       </li>
       <li
         class="player"
       >
         <div
-          class="player"
+          class="row"
         >
-          <span>
+          <img
+            alt="rocio"
+            class="avatar"
+            src="https://api.adorable.io/avatars/50/rocio@adorable.png"
+          />
+          <span
+            class="name"
+          >
             rocio
           </span>
-          <button>
-            X
-          </button>
         </div>
       </li>
       <li
         class="player"
       >
         <div
-          class="player"
+          class="row"
         >
-          <span>
+          <img
+            alt="cris"
+            class="avatar"
+            src="https://api.adorable.io/avatars/50/cris@adorable.png"
+          />
+          <span
+            class="name"
+          >
             cris
           </span>
-          <button>
-            X
-          </button>
         </div>
       </li>
       <li
         class="player"
       >
         <div
-          class="player"
+          class="row"
         >
-          <span>
+          <img
+            alt="curro"
+            class="avatar"
+            src="https://api.adorable.io/avatars/50/curro@adorable.png"
+          />
+          <span
+            class="name"
+          >
             curro
           </span>
-          <button>
-            X
-          </button>
         </div>
       </li>
       <li
