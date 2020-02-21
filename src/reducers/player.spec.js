@@ -1,5 +1,5 @@
-import players, { getPlayersByTeam } from "./player"
-import { cleanup } from "@testing-library/react"
+import players, {getPlayersByTeam} from "./player"
+import {cleanup} from "@testing-library/react"
 
 describe("player reducer", () => {
   afterEach(cleanup)
@@ -7,97 +7,85 @@ describe("player reducer", () => {
   it("should handle default case", () => {
     expect(
       players(
-        { players: [] },
+        {players: []},
         {
-          type: null
+          type: null,
         }
       )
-    ).toEqual({ players: [] })
+    ).toEqual({players: []})
   })
 
   it("should handle CREATE_PLAYER", () => {
     expect(
       players(
-        { players: [] },
+        {players: []},
         {
           type: "CREATE_PLAYER",
           player_name: "Jesus",
-          team_id: 1
+          team_id: 1,
         }
       )
-    ).toEqual({ players: [{ name: "Jesus", team: 1 }] })
+    ).toEqual({players: [{name: "Jesus", team: 1}]})
   })
 
   it("should handle CREATE_PLAYER when player exists", () => {
     expect(
       players(
-        { players: [{ name: "Jesus", team: 1 }] },
+        {players: [{name: "Jesus", team: 1}]},
         {
           type: "CREATE_PLAYER",
           player_name: "Jesus",
-          team_id: 1
+          team_id: 1,
         }
       )
-    ).toEqual({ players: [{ name: "Jesus", team: 1 }] })
+    ).toEqual({players: [{name: "Jesus", team: 1}]})
   })
 
   it("should handle REMOVE_PLAYER", () => {
     expect(
       players(
-        { players: [{ name: "Jesus", team: 1 }] },
+        {players: [{name: "Jesus", team: 1}]},
         {
           type: "REMOVE_PLAYER",
-          player_name: "Jesus"
+          player_name: "Jesus",
         }
       )
-    ).toEqual({ players: [] })
+    ).toEqual({players: []})
   })
 
   it("should handle REMOVE_PLAYER that doesn't exist", () => {
     expect(
       players(
-        { players: [{ name: "Jesus", team: 1 }] },
+        {players: [{name: "Jesus", team: 1}]},
         {
           type: "REMOVE_PLAYER",
-          player_name: "Curro"
+          player_name: "Curro",
         }
       )
-    ).toEqual({ players: [{ name: "Jesus", team: 1 }] })
+    ).toEqual({players: [{name: "Jesus", team: 1}]})
   })
 
   it("getPlayersByTeam should handle undefined state", () => {
-    // Arrange
     const initialState = undefined
-    // Act
     const players = getPlayersByTeam(initialState, 0).players
-    // Assert
     expect(players.length).toEqual(0)
   })
 
   it("getPlayersByTeam should handle empty state", () => {
-    // Arrange
-    const initialState = { players: [] }
-    // Act
+    const initialState = {players: []}
     const players = getPlayersByTeam(initialState, 0).players
-    // Assert
     expect(players.length).toEqual(0)
   })
 
   it("getPlayersByTeam should return empty array if player is not in the team requested", () => {
-    // Arrange
-    const initialState = { players: [{ name: "Jesus", team: 1 }] }
-    // Act
+    const initialState = {players: [{name: "Jesus", team: 1}]}
     const players = getPlayersByTeam(initialState, 0).players
-    // Assert
     expect(players.length).toEqual(0)
   })
 
   it("getPlayersByTeam should return player if it's in the team requested", () => {
-    // Arrange
-    const initialState = { players: { players: [{ name: "Jesus", team: 1 }] } }
-    // Act
+    const initialState = {players: {players: [{name: "Jesus", team: 1}]}}
     const players = getPlayersByTeam(initialState, 1)
-    // Assert
-    expect(players).toContainEqual({ name: "Jesus", team: 1 })
+    expect(players).toContainEqual({name: "Jesus", team: 1})
   })
 })
