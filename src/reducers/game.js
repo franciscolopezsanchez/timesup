@@ -2,6 +2,7 @@ import {CREATE_GAME, START_NEW_ROUND} from "../actions/game"
 
 const initialState = {
   round: 0,
+  numberOfRounds: 3,
   player: null,
   team: null,
   last_player: null,
@@ -23,3 +24,5 @@ const game = (state = initialState, {type, payload}) => {
 }
 
 export default game
+
+export const getNumberOfRounds = state => state.game.numberOfRounds

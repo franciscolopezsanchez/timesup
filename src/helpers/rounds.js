@@ -1,6 +1,8 @@
 function CreateRoundsRandomizingCharacters(numberOfRounds, characters) {
   const rounds = []
 
+  if (!characters) return rounds
+
   for (let i = 0; i < numberOfRounds; ++i) {
     const round = []
     characters = shuffle(characters)
