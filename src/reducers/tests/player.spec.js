@@ -1,4 +1,4 @@
-import players, {getPlayersByTeam, getNumberOfPlayers} from "./player"
+import players, {getPlayersByTeam, getNumberOfPlayers} from "../player"
 import {cleanup} from "@testing-library/react"
 
 describe("player reducer", () => {
