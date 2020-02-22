@@ -18,3 +18,5 @@ const characters = (state = initialState, action) => {
 }
 
 export default characters
+
+export const getCharacters = state => state.characters
