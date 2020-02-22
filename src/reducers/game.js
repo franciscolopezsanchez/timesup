@@ -25,4 +25,4 @@ const game = (state = initialState, {type, payload}) => {
 
 export default game
 
-export const getNumberOfRounds = state => state.numberOfRounds
+export const getNumberOfRounds = state => state.game.numberOfRounds
