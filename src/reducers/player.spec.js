@@ -1,4 +1,4 @@
-import players, {getPlayersByTeam} from "./player"
+import players, {getPlayersByTeam, getNumberOfPlayers} from "./player"
 import {cleanup} from "@testing-library/react"
 
 describe("player reducer", () => {
@@ -87,5 +87,17 @@ describe("player reducer", () => {
     const initialState = {players: {players: [{name: "Jesus", team: 1}]}}
     const players = getPlayersByTeam(initialState, 1)
     expect(players).toContainEqual({name: "Jesus", team: 1})
+  })
+
+  it("getNumberOfPlayers returns number of players in state: 0", () => {
+    const initialState = {players: {players: []}}
+    const numberOfPlayers = getNumberOfPlayers(initialState)
+    expect(numberOfPlayers).toBe(0)
+  })
+
+  it("getNumberOfPlayers returns number of players in state: 1", () => {
+    const initialState = {players: {players: [{name: "Jesus", team: 1}]}}
+    const numberOfPlayers = getNumberOfPlayers(initialState)
+    expect(numberOfPlayers).toBe(1)
   })
 })
