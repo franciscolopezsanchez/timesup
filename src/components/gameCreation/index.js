@@ -14,7 +14,13 @@ import {Link} from "react-router-dom"
 
 import SETTINGS from "../../config-files/settings-config"
 
-function GameCreation({createGame, charactersPerPlayer, numberOfPlayers}) {
+function GameCreation({
+  createGame,
+  startNewRound,
+  selectCharacters,
+  charactersPerPlayer,
+  numberOfPlayers,
+}) {
   const {t} = useTranslation()
 
   return (
@@ -26,7 +32,11 @@ function GameCreation({createGame, charactersPerPlayer, numberOfPlayers}) {
         <ActionButton
           disabled={numberOfPlayers < 4}
           buttonText={t("Play")}
-          handler={() => createGame(charactersPerPlayer.value * numberOfPlayers)}
+          handler={() => {
+            createGame()
+            startNewRound()
+            selectCharacters(charactersPerPlayer.value * numberOfPlayers)
+          }}
         />
       </Link>
     </div>
@@ -39,11 +49,9 @@ const mapStateToProps = (state, props) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  createGame: numberOfCharacters => {
-    dispatch(createGame())
-    dispatch(startNewRound())
-    dispatch(selectCharacters(numberOfCharacters))
-  },
+  createGame: () => dispatch(createGame()),
+  startNewRound: () => dispatch(startNewRound()),
+  selectCharacters: numberOfCharacters => dispatch(selectCharacters(numberOfCharacters)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameCreation)
