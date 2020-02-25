@@ -2,18 +2,32 @@ function GetNextPlayer(players, lastPlayerPlayed) {
   if (!players) return null
   if (!lastPlayerPlayed) return players[0]
 
-  const teamToPlay = players.filter(player => player.team === lastPlayerPlayed.team)
+  const numberOfTeams = getNumberOfTeams(players)
+  const nextTeamToPlay = (lastPlayerPlayed.team + 1) % numberOfTeams
+  const lastTeamPlayed = players.filter(player => player.team === lastPlayerPlayed.team)
 
-  console.log(teamToPlay)
-  const indexOfLastPlayerPlayed = teamToPlay
-    .map(player => {
-      return player.name
+  var indexOfLastPlayerPlayed = lastTeamPlayed
+    .map(function(x) {
+      return x.name
     })
     .indexOf(lastPlayerPlayed.name)
 
-  const indexOfNextPlayerToPlay = (indexOfLastPlayerPlayed + 1) % teamToPlay.length
+  let nextPlayerIndex = indexOfLastPlayerPlayed
 
-  return teamToPlay[indexOfNextPlayerToPlay]
+  if (lastPlayerPlayed.team === numberOfTeams - 1) {
+    nextPlayerIndex = (nextPlayerIndex + 1) % lastTeamPlayed.length
+  }
+  const teamToPlay = players.filter(player => player.team === nextTeamToPlay)
+  return teamToPlay[nextPlayerIndex]
 }
 
+function getNumberOfTeams(players) {
+  let numberOfTeams = 0
+  players.forEach(player => {
+    if (player.team === numberOfTeams) {
+      numberOfTeams++
+    }
+  })
+  return numberOfTeams
+}
 export default GetNextPlayer
