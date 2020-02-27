@@ -37,3 +37,5 @@ export const getPlayersByTeam = (state, teamId) => {
 }
 
 export const getNumberOfPlayers = state => state.players.players.length
+
+export const getPlayers = state => state.players.players

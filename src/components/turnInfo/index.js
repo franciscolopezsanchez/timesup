@@ -1,7 +1,16 @@
 import React from "react"
+import {connect} from "react-redux"
+import {getPlayerPlaying} from "../../reducers/game"
 
-function TurnInfo({playerPlaying}) {
-	return <div>{"Comenzará " + playerPlaying + " del Equipo Azul"}</div>
+function TurnInfo({player}) {
+  if (!player) return null
+  return <div>{"Comenzará " + player.name + " del Equipo Azul"}</div>
 }
 
-export default TurnInfo
+const mapStateToProps = (state, props) => ({
+  player: getPlayerPlaying(state),
+})
+
+const mapDispatchToProps = dispatch => ({})
+
+export default connect(mapStateToProps, mapDispatchToProps)(TurnInfo)

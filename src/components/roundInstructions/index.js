@@ -5,13 +5,13 @@ import ActionButton from "../actionButton"
 
 import {useTranslation} from "react-i18next"
 
-function RoundInstructions({playerPlaying, startPlaying}) {
+function RoundInstructions({startPlaying}) {
   const {t} = useTranslation()
 
   return (
     <div>
       <InstructionsField />
-      <TurnInfo playerPlaying={playerPlaying} />
+      <TurnInfo />
       <ActionButton buttonText={t("Start")} handler={startPlaying} />
     </div>
   )
