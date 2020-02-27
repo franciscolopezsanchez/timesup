@@ -1,4 +1,5 @@
 import {SET_SETTING} from "../actions/setting"
+import {CHARACTERS_PER_PLAYER, SECONDS_PER_TURN} from "../config-files/settings-config"
 
 const initialState = {
   settings: [],
@@ -26,7 +27,16 @@ const settings = (state = initialState, action) => {
 }
 export default settings
 
-export const getCharactersPerPlayer = state =>
-  state.settings.settings.find(setting => {
-    return setting.id === "CHARACTERS_PER_PLAYER"
+export const getCharactersPerPlayer = state => {
+  const setting = state.settings.settings.find(setting => {
+    return setting.id === CHARACTERS_PER_PLAYER
   })
+  return setting ? setting.value : null
+}
+
+export const getSecondsPerTurn = state => {
+  const setting = state.settings.settings.find(setting => {
+    return setting.id === SECONDS_PER_TURN
+  })
+  return setting.value
+}
