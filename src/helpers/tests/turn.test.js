@@ -22,9 +22,9 @@ describe("GetNextPlayer tests", () => {
     expect(player).toBe(null)
   })
 
-  test("handles no argument: lastPlayerPlayed", () => {
+  test("handles no argument: lastPlayerPlayed -> return first player", () => {
     var player = GetNextPlayer(players)
-    expect(player.name).toBe("jesus")
+    expect(player.name).toBe(players[0].name)
   })
 
   test("handles teams with one player per team", () => {
