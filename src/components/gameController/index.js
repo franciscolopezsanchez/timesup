@@ -19,7 +19,6 @@ function GameController({
   selectNextPlayer,
 }) {
   const [playing, setPlaying] = useState(false)
-  const [playerPlaying, setPlayerPlaying] = useState("CALCULATE PLAYER PLAYING")
   const [roundFinished, setRoundFinished] = useState(false)
 
   const startPlayingHandler = () => {
@@ -38,12 +37,9 @@ function GameController({
   return (
     <div>
       {!playing ? (
-        <RoundInstructions
-          playerPlaying={playerPlaying}
-          startPlaying={startPlayingHandler}
-        />
+        <RoundInstructions startPlaying={startPlayingHandler} />
       ) : (
-        <TurnView playerPlaying={playerPlaying} finishPlaying={finishPlayingHandler} />
+        <TurnView finishPlaying={finishPlayingHandler} />
       )}
       {roundFinished && <StatsView />}
     </div>
