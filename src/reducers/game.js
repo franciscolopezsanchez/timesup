@@ -33,3 +33,4 @@ export default game
 
 export const getNumberOfRounds = state => state.game.numberOfRounds
 export const getPlayerPlaying = state => state.game.player
+export const getActualRound = state => state.game.round
