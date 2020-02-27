@@ -35,7 +35,7 @@ function GameCreation({
           handler={() => {
             createGame()
             startNewRound()
-            selectCharacters(charactersPerPlayer.value * numberOfPlayers)
+            selectCharacters(charactersPerPlayer * numberOfPlayers)
           }}
         />
       </Link>
