@@ -32,7 +32,7 @@ function GameController({
   useEffect(() => {
     createRounds(numberOfRounds, characters)
     selectNextPlayer(players)
-  })
+  }, [])
 
   return (
     <div>
