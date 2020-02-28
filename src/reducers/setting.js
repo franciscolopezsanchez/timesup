@@ -38,5 +38,5 @@ export const getSecondsPerTurn = state => {
   const setting = state.settings.settings.find(setting => {
     return setting.id === SECONDS_PER_TURN
   })
-  return setting.value
+  return setting ? setting.value : null
 }
