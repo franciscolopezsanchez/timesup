@@ -18,8 +18,8 @@ function TurnView({finishPlaying, secondsPerTurn}) {
       <TurnScore />
       <CharacterCard />
       <Timer seconds={secondsPerTurn} handler={finishPlaying} />
-      <ActionButton buttonText={t("Right answer")} />
       <ActionButton buttonText={t("Next character")} />
+      <ActionButton buttonText={t("Right answer")} />
     </div>
   )
 }
