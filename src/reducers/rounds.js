@@ -17,7 +17,9 @@ const rounds = (state = initialState, action) => {
       return {...state, rounds: rounds}
 
     case SELECT_CHARACTER:
-      return {...state, actualCharacterIndex: state.actualCharacterIndex + 1}
+      const numberOfCharacters = state.rounds[0].length
+      const newIndex = (state.actualCharacterIndex + 1) % numberOfCharacters
+      return {...state, actualCharacterIndex: newIndex}
 
     default:
       return state
