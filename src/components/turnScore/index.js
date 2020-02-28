@@ -1,7 +1,7 @@
 import React from "react"
 
 function TurnScore() {
-  return <div>5 aciertos</div>
+  return <div>XXXX aciertos</div>
 }
 
 export default TurnScore
