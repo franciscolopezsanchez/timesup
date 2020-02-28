@@ -1,12 +1,24 @@
 import React from "react"
+import {connect} from "react-redux"
+
+import {getActualRound} from "../../reducers/game"
+import {getNextCharacter} from "../../reducers/rounds"
+
 import styles from "./characterCard.module.scss"
 
-function CharacterCard() {
+function CharacterCard({character}) {
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.text}>MIGUELITO, PERO NO EL TITO SINO EL NIÑO CHIQUITITO</h1>
+      <h1 className={styles.text}>{character}</h1>
     </div>
   )
 }
 
-export default CharacterCard
+const mapStateToProps = (state, props) => ({
+  actualRound: getActualRound(state),
+  character: getNextCharacter(state),
+})
+
+const mapDispatchToProps = dispatch => ({})
+
+export default connect(mapStateToProps, mapDispatchToProps)(CharacterCard)
