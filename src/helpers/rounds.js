@@ -1,18 +1,14 @@
-function CreateRoundsRandomizingCharacters(numberOfRounds, characters) {
-  const rounds = []
+function CreateRoundsRandomizingCharacters(characters) {
+  const round = []
 
-  if (!characters) return rounds
+  if (!characters) return round
 
-  for (let i = 0; i < numberOfRounds; ++i) {
-    const round = []
-    characters = shuffle(characters)
-    for (let j = 0; j < characters.length; ++j) {
-      round.push({character: characters[j], player: ""})
-    }
-    rounds.push(round)
+  characters = shuffle(characters)
+  for (let j = 0; j < characters.length; ++j) {
+    round.push(characters[j])
   }
 
-  return rounds
+  return round
 }
 
 function shuffle(array) {

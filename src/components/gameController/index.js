@@ -6,6 +6,7 @@ import {getCharacters} from "../../reducers/characters"
 import {getPlayers} from "../../reducers/player"
 import {getNumberOfRounds} from "../../reducers/game"
 import {selectNextPlayer} from "../../actions/turn"
+import {selectCharacter} from "../../actions/rounds"
 
 import RoundInstructions from "../roundInstructions"
 import TurnView from "../turnView"
@@ -17,6 +18,7 @@ function GameController({
   numberOfRounds,
   createRounds,
   selectNextPlayer,
+  selectCharacter,
 }) {
   const [playing, setPlaying] = useState(false)
   const [roundFinished, setRoundFinished] = useState(false)
@@ -27,6 +29,7 @@ function GameController({
 
   const finishPlayingHandler = () => {
     setPlaying(false)
+    selectCharacter()
   }
 
   useEffect(() => {
@@ -56,6 +59,7 @@ const mapDispatchToProps = dispatch => ({
   createRounds: (numberOfRounds, characters) =>
     dispatch(createRounds(numberOfRounds, characters.characters)),
   selectNextPlayer: players => dispatch(selectNextPlayer(players)),
+  selectCharacter: () => dispatch(selectCharacter()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameController)
