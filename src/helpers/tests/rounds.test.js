@@ -2,23 +2,14 @@ import CreateRoundsRandomizingCharacters from "../rounds"
 
 describe("CreateRoundsRandomizingCharacters tests", () => {
   test("handles empty argument", () => {
-    var rounds = CreateRoundsRandomizingCharacters()
-    expect(rounds.length).toBe(0)
+    var round = CreateRoundsRandomizingCharacters()
+    expect(round.length).toBe(0)
   })
 
-  test("handles no characters as argument", () => {
-    var rounds = CreateRoundsRandomizingCharacters(3)
-    expect(rounds.length).toBe(0)
-  })
-
-  test("returns number of rounds requested", () => {
+  test("returns shuffled characters", () => {
     const characters = ["donald", "mickey", "pluto"]
-    const numberOfRounds = 3
-    var rounds = CreateRoundsRandomizingCharacters(numberOfRounds, characters)
+    var round = CreateRoundsRandomizingCharacters(characters)
 
-    expect(rounds.length).toBe(3)
-    for (let i = 0; i < numberOfRounds; i++) {
-      expect(rounds[i].every(v => characters.includes(v.character))).toBe(true)
-    }
+    expect(round.every(char => characters.includes(char.character))).toBe(true)
   })
 })
