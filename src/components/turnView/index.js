@@ -2,7 +2,7 @@ import React from "react"
 import {connect} from "react-redux"
 
 import {getSecondsPerTurn} from "../../reducers/setting"
-import {selectCharacter} from "../../actions/rounds"
+import {selectCharacter, removeCharacter} from "../../actions/rounds"
 
 import TurnScore from "../turnScore"
 import CharacterCard from "../characterCard"
@@ -11,7 +11,7 @@ import ActionButton from "../actionButton"
 
 import {useTranslation} from "react-i18next"
 
-function TurnView({finishPlaying, secondsPerTurn, selectCharacter}) {
+function TurnView({finishPlaying, secondsPerTurn, selectCharacter, removeCharacter}) {
   const {t} = useTranslation()
 
   return (
@@ -20,7 +20,7 @@ function TurnView({finishPlaying, secondsPerTurn, selectCharacter}) {
       <CharacterCard />
       <Timer seconds={secondsPerTurn} handler={finishPlaying} />
       <ActionButton buttonText={t("Next character")} handler={selectCharacter} />
-      <ActionButton buttonText={t("Right answer")} />
+      <ActionButton buttonText={t("Right answer")} handler={removeCharacter} />
     </div>
   )
 }
@@ -31,6 +31,7 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = dispatch => ({
   selectCharacter: () => dispatch(selectCharacter()),
+  removeCharacter: () => dispatch(removeCharacter()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TurnView)
