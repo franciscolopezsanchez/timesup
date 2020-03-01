@@ -32,6 +32,6 @@ export default stats
 
 export const getRightAnswersPerPlayer = (state, playerName) => {
   const lastRound = state.stats.players.length - 1
-  return state.stats.players[lastRound].find(player => player.name === playerName)
+  return state.stats.players[lastRound].find(player => player.player === playerName)
     .rightAnswers
 }
