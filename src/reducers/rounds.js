@@ -27,7 +27,7 @@ const rounds = (state = initialState, action) => {
       state.characters.splice(state.actualCharacterIndex, 1)
       const array = state.characters
       let index = state.actualCharacterIndex
-      console.log(index)
+
       if (state.characters.length === state.actualCharacterIndex) index = 0
       return {...state, characters: array, actualCharacterIndex: index}
 
