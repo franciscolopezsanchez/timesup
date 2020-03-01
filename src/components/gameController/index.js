@@ -47,12 +47,13 @@ function GameController({
 
   return (
     <div>
-      {!playing ? (
+      {isRoundFinished ? (
+        <StatsView />
+      ) : !playing ? (
         <RoundInstructions startPlaying={startPlayingHandler} />
       ) : (
         <TurnView finishPlaying={finishPlayingHandler} />
       )}
-      {isRoundFinished && <StatsView />}
     </div>
   )
 }
