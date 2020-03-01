@@ -8,20 +8,28 @@ const initialState = {
 }
 
 const rounds = (state = initialState, action) => {
+  const calculateNextIndex = () => {
+    const numberOfCharacters = state.characters.length
+    const newIndex = (state.actualCharacterIndex + 1) % numberOfCharacters
+    return newIndex
+  }
+
   switch (action.type) {
     case CREATE_ROUNDS:
       const characters = CreateRoundsRandomizingCharacters(action.characters)
       return {...state, characters: characters}
 
     case SELECT_CHARACTER:
-      const numberOfCharacters = state.characters.length
-      const newIndex = (state.actualCharacterIndex + 1) % numberOfCharacters
+      const newIndex = calculateNextIndex()
       return {...state, actualCharacterIndex: newIndex}
 
     case REMOVE_CHARACTER:
       state.characters.splice(state.actualCharacterIndex, 1)
-      var array = state.characters
-      return {...state, characters: array}
+      const array = state.characters
+      let index = state.actualCharacterIndex
+      console.log(index)
+      if (state.characters.length === state.actualCharacterIndex) index = 0
+      return {...state, characters: array, actualCharacterIndex: index}
 
     default:
       return state
