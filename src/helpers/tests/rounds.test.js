@@ -10,6 +10,6 @@ describe("CreateRoundsRandomizingCharacters tests", () => {
     const characters = ["donald", "mickey", "pluto"]
     var round = CreateRoundsRandomizingCharacters(characters)
 
-    expect(round.every(char => characters.includes(char.character))).toBe(true)
+    expect(round.every(char => characters.includes(char))).toBe(true)
   })
 })
