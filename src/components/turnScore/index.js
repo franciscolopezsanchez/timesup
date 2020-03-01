@@ -1,7 +1,18 @@
 import React from "react"
+import {connect} from "react-redux"
 
-function TurnScore() {
-  return <div>XXXX aciertos</div>
+import {getRightAnswersPerPlayer} from "../../reducers/stats"
+import {getPlayerPlaying} from "../../reducers/game"
+
+function TurnScore({rightAnswers, playerPlaying}) {
+  return <div>{rightAnswers} aciertos</div>
 }
 
-export default TurnScore
+const mapStateToProps = (state, props) => ({
+  rightAnswers: getRightAnswersPerPlayer(state, props.playerPlaying),
+  playerPlaying: getPlayerPlaying(state),
+})
+
+const mapDispatchToProps = dispatch => ({})
+
+export default connect(mapStateToProps, mapDispatchToProps)(TurnScore)
