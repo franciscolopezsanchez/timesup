@@ -4,6 +4,7 @@ import settings from "./setting"
 import game from "./game"
 import characters from "./characters"
 import rounds from "./rounds"
+import stats from "./stats"
 
 export default combineReducers({
   players,
@@ -11,4 +12,5 @@ export default combineReducers({
   game,
   characters,
   rounds,
+  stats,
 })

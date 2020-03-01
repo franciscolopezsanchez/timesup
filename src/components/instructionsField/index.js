@@ -9,7 +9,6 @@ function InstructionsField({round, secondsPerTurn}) {
     <div>
       <ul>
         <li>{"Ronda " + round}</li>
-        <li>Explicación del personaje</li>
         <li>No se puede pasar</li>
         <li>{secondsPerTurn + " segundos por turno"}</li>
       </ul>
