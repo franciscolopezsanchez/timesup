@@ -2,15 +2,13 @@ import React from "react"
 import {connect} from "react-redux"
 
 import {getRightAnswersPerPlayer} from "../../reducers/stats"
-import {getPlayerPlaying} from "../../reducers/game"
 
-function TurnScore({rightAnswers, playerPlaying}) {
+function TurnScore({rightAnswers, player}) {
   return <div>{rightAnswers} aciertos</div>
 }
 
 const mapStateToProps = (state, props) => ({
-  rightAnswers: getRightAnswersPerPlayer(state, props.playerPlaying),
-  playerPlaying: getPlayerPlaying(state),
+  rightAnswers: getRightAnswersPerPlayer(state, props.player),
 })
 
 const mapDispatchToProps = dispatch => ({})

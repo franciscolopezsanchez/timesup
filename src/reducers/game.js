@@ -1,14 +1,12 @@
 import {CREATE_GAME, START_NEW_ROUND} from "../actions/game"
-import {SELECT_NEXT_PLAYER} from "../actions/turn"
+import {SELECT_NEXT_PLAYER, SELECT_LAST_PLAYER_PLAYED} from "../actions/turn"
 import GetNextPlayer from "../helpers/turn"
 
 const initialState = {
   round: 0,
   numberOfRounds: 3,
   player: null,
-  team: null,
   last_player: null,
-  last_team: null,
   game_status: null,
 }
 
@@ -21,8 +19,11 @@ const game = (state = initialState, action) => {
       return {...state, round: ++state.round}
 
     case SELECT_NEXT_PLAYER:
-      const nextPlayer = GetNextPlayer(action.players)
+      const nextPlayer = GetNextPlayer(action.players, state.last_player)
       return {...state, player: nextPlayer}
+
+    case SELECT_LAST_PLAYER_PLAYED:
+      return {...state, last_player: state.player}
 
     default:
       return state

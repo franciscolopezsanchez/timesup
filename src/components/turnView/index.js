@@ -27,7 +27,7 @@ function TurnView({
   return (
     <div>
       <div>Jugando: {playerPlaying.name}</div>
-      <TurnScore />
+      <TurnScore player={playerPlaying.name} />
       <CharacterCard />
       <Timer seconds={secondsPerTurn} handler={finishPlaying} />
       <ActionButton buttonText={t("Next character")} handler={selectCharacter} />
@@ -35,7 +35,7 @@ function TurnView({
         buttonText={t("Right answer")}
         handler={() => {
           removeCharacter()
-          rightAnswer()
+          rightAnswer(playerPlaying.name)
         }}
       />
     </div>
@@ -50,7 +50,7 @@ const mapStateToProps = (state, props) => ({
 const mapDispatchToProps = dispatch => ({
   selectCharacter: () => dispatch(selectCharacter()),
   removeCharacter: () => dispatch(removeCharacter()),
-  rightAnswer: () => dispatch(rightAnswer()),
+  rightAnswer: playerPlaying => dispatch(rightAnswer(playerPlaying)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TurnView)
