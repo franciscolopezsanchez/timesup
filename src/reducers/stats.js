@@ -18,8 +18,9 @@ const stats = (state = initialState, action) => {
     case RIGHT_ANSWER:
       const playerName = action.playerName
       const actualRound = state.players.length - 1
-      state.players[actualRound].find(player => player.name === playerName).rightAnswers++
 
+      state.players[actualRound].find(player => player.player === playerName)
+        .rightAnswers++
       return {...state, players: state.players}
 
     default:
