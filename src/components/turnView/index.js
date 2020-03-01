@@ -27,7 +27,7 @@ function TurnView({
   return (
     <div>
       <div>Jugando: {playerPlaying.name}</div>
-      <TurnScore />
+      <TurnScore player={playerPlaying.name} />
       <CharacterCard />
       <Timer seconds={secondsPerTurn} handler={finishPlaying} />
       <ActionButton buttonText={t("Next character")} handler={selectCharacter} />
