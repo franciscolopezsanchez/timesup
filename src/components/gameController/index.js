@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from "react"
 import {connect} from "react-redux"
+import {Redirect} from "react-router-dom"
 
 import {createRounds} from "../../actions/rounds"
 import {getCharacters} from "../../reducers/characters"
 import {getPlayers} from "../../reducers/player"
-import {getNumberOfRounds} from "../../reducers/game"
+import {getNumberOfRounds, getActualRound} from "../../reducers/game"
 import {isRoundFinished} from "../../reducers/game"
 import {selectNextPlayer} from "../../actions/turn"
 import {selectCharacter} from "../../actions/rounds"
@@ -13,7 +14,6 @@ import {selectLastPlayerPlayed} from "../../actions/turn"
 
 import RoundInstructions from "../roundInstructions"
 import TurnView from "../turnView"
-import StatsView from "../statsView"
 
 function GameController({
   characters,
@@ -25,6 +25,7 @@ function GameController({
   selectCharacter,
   initiateRoundStats,
   selectLastPlayerPlayed,
+  actualRound,
 }) {
   const [playing, setPlaying] = useState(false)
 
@@ -48,7 +49,7 @@ function GameController({
   return (
     <div>
       {isRoundFinished ? (
-        <StatsView />
+        <Redirect to={`/stats/${actualRound}`} />
       ) : !playing ? (
         <RoundInstructions startPlaying={startPlayingHandler} />
       ) : (
@@ -63,6 +64,7 @@ const mapStateToProps = (state, props) => ({
   numberOfRounds: getNumberOfRounds(state),
   players: getPlayers(state),
   isRoundFinished: isRoundFinished(state),
+  actualRound: getActualRound(state),
 })
 
 const mapDispatchToProps = dispatch => ({
