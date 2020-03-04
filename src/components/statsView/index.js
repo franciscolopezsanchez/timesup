@@ -13,8 +13,8 @@ function StatsView() {
   return (
     <div>
       <span>Stadisticas para la ronda {round} </span>
-      <TeamScore />
-      <TeamScore />
+      <TeamScore round={round} team={0} />
+      <TeamScore round={round} team={1} />
       <Link to="/play">
         <ActionButton buttonText={t("Next Round")} />
       </Link>
