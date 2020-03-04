@@ -10,7 +10,11 @@ const stats = (state = initialState, action) => {
       const players = action.players
       const playersStats = []
       for (let i = 0; i < players.length; i++) {
-        playersStats[i] = {player: players[i].name, rightAnswers: 0}
+        playersStats[i] = {
+          player: players[i].name,
+          team: players[i].team,
+          rightAnswers: 0,
+        }
       }
       state.players.push(playersStats)
       return {...state, players: state.players}
@@ -34,4 +38,11 @@ export const getRightAnswersPerPlayer = (state, playerName) => {
   const lastRound = state.stats.players.length - 1
   return state.stats.players[lastRound].find(player => player.player === playerName)
     .rightAnswers
+}
+
+export const getTeamStats = (state, team, round) => {
+  return (
+    state.stats.players[round - 1] &&
+    state.stats.players[round - 1].filter(player => player.team === team)
+  )
 }

@@ -5,6 +5,7 @@ import styles from "./App.module.css"
 import Title from "../title"
 import GameCreation from "../gameCreation"
 import GameController from "../gameController"
+import StatsView from "../statsView"
 
 function App() {
   return (
@@ -12,11 +13,14 @@ function App() {
       <Title />
       <Router>
         <Switch>
-          <Route path="/play">
+          <Route exact path="/">
+            <GameCreation />
+          </Route>
+          <Route exact path="/play">
             <GameController />
           </Route>
-          <Route path="/">
-            <GameCreation />
+          <Route exact path="/stats/:round">
+            <StatsView />
           </Route>
         </Switch>
       </Router>

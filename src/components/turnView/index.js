@@ -3,9 +3,11 @@ import {connect} from "react-redux"
 
 import {getSecondsPerTurn} from "../../reducers/setting"
 import {getPlayerPlaying} from "../../reducers/game"
+import {getNumberCharactersLeft} from "../../reducers/rounds"
 
 import {selectCharacter, removeCharacter} from "../../actions/rounds"
 import {rightAnswer} from "../../actions/stats"
+import {finishRound} from "../../actions/game"
 
 import TurnScore from "../turnScore"
 import CharacterCard from "../characterCard"
@@ -18,9 +20,11 @@ function TurnView({
   finishPlaying,
   secondsPerTurn,
   playerPlaying,
+  charactersLeft,
   selectCharacter,
   removeCharacter,
   rightAnswer,
+  finishRound,
 }) {
   const {t} = useTranslation()
 
@@ -36,21 +40,27 @@ function TurnView({
         handler={() => {
           removeCharacter()
           rightAnswer(playerPlaying.name)
+
+          if (charactersLeft - 1 === 0) {
+            finishRound()
+          }
         }}
       />
     </div>
   )
 }
 
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = state => ({
   secondsPerTurn: getSecondsPerTurn(state),
   playerPlaying: getPlayerPlaying(state),
+  charactersLeft: getNumberCharactersLeft(state),
 })
 
 const mapDispatchToProps = dispatch => ({
   selectCharacter: () => dispatch(selectCharacter()),
   removeCharacter: () => dispatch(removeCharacter()),
   rightAnswer: playerPlaying => dispatch(rightAnswer(playerPlaying)),
+  finishRound: () => dispatch(finishRound()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TurnView)

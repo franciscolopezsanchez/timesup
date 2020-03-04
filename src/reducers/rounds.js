@@ -41,3 +41,7 @@ export const getNextCharacter = state => {
   const characterIndex = state.rounds.actualCharacterIndex
   return state.rounds.characters[characterIndex]
 }
+
+export const getNumberCharactersLeft = state => {
+  return state.rounds.characters.length
+}
