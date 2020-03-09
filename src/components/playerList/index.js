@@ -16,7 +16,7 @@ function PlayerList({teamId, teamName, players, createPlayer, removePlayer}) {
           )
         })}
         <li className="playerInput">
-          <PlayerInput createPlayer={createPlayer} teamId={teamId} />
+          <PlayerInput createPlayer={createPlayer} teamId={teamId} teamName={teamName} />
         </li>
       </ul>
     </div>

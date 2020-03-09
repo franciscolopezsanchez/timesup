@@ -11,7 +11,14 @@ const players = (state = initialState, action) => {
         ...state,
         players:
           state.players.filter(player => player.name === action.player_name).length === 0
-            ? [...state.players, {name: action.player_name, team: action.team_id}]
+            ? [
+                ...state.players,
+                {
+                  name: action.player_name,
+                  team: action.team_id,
+                  team_name: action.team_name,
+                },
+              ]
             : state.players,
       }
 
