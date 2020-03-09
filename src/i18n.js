@@ -1,45 +1,45 @@
 import i18n from "i18next"
-import { initReactI18next } from "react-i18next"
+import {initReactI18next} from "react-i18next"
 
 import LanguageDetector from "i18next-browser-languagedetector"
 
 const resources = {
   en: {
     translation: {
-      "TIME'S UP": "TIME'S UP!",
+      TICKING: "TICKING",
       Play: "Play",
       Start: "Start",
       "Next Round": "Next Round",
       "Right answer": "Right answer",
       "Next character": "Next character",
       "Characters per player": "Characters per player",
-      "Seconds per turn": "Seconds per turn"
-    }
+      "Seconds per turn": "Seconds per turn",
+    },
   },
   es: {
     translation: {
-      "TIME'S UP": "TIME'S UP!",
+      TICKING: "TICKING",
       Play: "Jugar",
       Start: "Comenzar!",
       "Next Round": "Siguiente Ronda",
       "Right answer": "CORRECTO",
       "Next character": "PASAR",
       "Characters per player": "Personajes por jugador",
-      "Seconds per turn": "Segundos por turno"
-    }
+      "Seconds per turn": "Segundos por turno",
+    },
   },
   fr: {
     translation: {
-      "TIME'S UP": "TIME'S UP!",
-        Play: "Jouer",
-        Start: "Commencer!",
-        "Next Round": "Prochain Tour",
-        "Right answer": "CORRECT",
-        "Next character": "PASSER",
-        "Characters per player": "Caractères par jouer",
-        "Seconds per turn": "Secondes par tour"
-    }
-  }
+      TICKING: "TICKING",
+      Play: "Jouer",
+      Start: "Commencer!",
+      "Next Round": "Prochain Tour",
+      "Right answer": "CORRECT",
+      "Next character": "PASSER",
+      "Characters per player": "Caractères par jouer",
+      "Seconds per turn": "Secondes par tour",
+    },
+  },
 }
 
 i18n
@@ -56,8 +56,8 @@ i18n
     debug: true,
 
     interpolation: {
-      escapeValue: false // not needed for react as it escapes by default
-    }
+      escapeValue: false, // not needed for react as it escapes by default
+    },
   })
 
 export default i18n

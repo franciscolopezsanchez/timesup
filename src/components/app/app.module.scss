@@ -1,6 +1,6 @@
-.app {
-  text-align: center;
+.wrapper {
   height: 100%;
+  text-align: center;
   background: -moz-linear-gradient(
     50% 0% -90deg,
     rgba(117, 221, 221, 1) 0%,
@@ -43,4 +43,8 @@
     rgba(255, 253, 130, 1) 100%
   );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#75DDDD',endColorstr='#FFFD82' , GradientType=0);
+  .app {
+    max-width: 400px;
+    margin: 0 auto;
+  }
 }
