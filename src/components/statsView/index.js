@@ -34,7 +34,7 @@ function StatsView({players, numberOfRounds, selectNextPlayer, initiateRoundStat
   )
 }
 
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = state => ({
   players: getPlayers(state),
   numberOfRounds: getNumberOfRounds(state),
 })
