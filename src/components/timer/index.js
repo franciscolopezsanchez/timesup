@@ -7,6 +7,7 @@ function Timer({seconds, handler}) {
     let interval = setInterval(() => {
       substractSecond()
     }, 1000)
+
     const substractSecond = () => {
       seconds = seconds - 1
       setSecondsLeft(seconds)
@@ -14,6 +15,10 @@ function Timer({seconds, handler}) {
         clearInterval(interval)
         handler()
       }
+    }
+
+    return function cleanup() {
+      clearInterval(interval)
     }
   }, [])
 
