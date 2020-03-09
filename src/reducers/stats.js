@@ -51,6 +51,8 @@ export const getTeamStats = (state, team_id, round) => {
 export const getTeamName = (state, team_id) => {
   const lastRound = state.stats.players.length - 1
 
-  const player = state.stats.players[lastRound].find(player => player.team === team_id)
-  return player.team_name
+  const player =
+    state.stats.players[lastRound] &&
+    state.stats.players[lastRound].find(player => player.team === team_id)
+  return player && player.team_name
 }
