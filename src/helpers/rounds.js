@@ -3,9 +3,9 @@ function CreateRoundsRandomizingCharacters(characters) {
 
   if (!characters) return round
 
-  characters = shuffle(characters)
-  for (let j = 0; j < characters.length; ++j) {
-    round.push(characters[j])
+  const shuffledCharacters = shuffle(characters)
+  for (let j = 0; j < shuffledCharacters.length; ++j) {
+    round.push(shuffledCharacters[j])
   }
 
   return round
