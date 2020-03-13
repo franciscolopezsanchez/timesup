@@ -59,7 +59,7 @@ function GameController({
   )
 }
 
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = state => ({
   characters: getCharacters(state),
   numberOfRounds: getNumberOfRounds(state),
   players: getPlayers(state),
