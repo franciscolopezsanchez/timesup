@@ -4,6 +4,7 @@ import {createGame, startNewRound} from "../../actions/game"
 import {selectCharacters} from "../../actions/characters"
 import {getCharactersPerPlayer} from "../../reducers/setting"
 import {getNumberOfPlayers} from "../../reducers/player"
+import {isMinNumberPlayersAllowed} from "../../reducers/player"
 
 import PlayerListContainer from "../../containers/playerListContainer"
 import SettingListContainer from "../../containers/settingListContainer"
@@ -30,7 +31,7 @@ function GameCreation({
       <SettingListContainer settings={SETTINGS} />
       <Link to="/play">
         <ActionButton
-          disabled={numberOfPlayers < 4}
+          disabled={minNumberPlayersAllowed}
           buttonText={t("Play")}
           handler={() => {
             createGame()
@@ -46,6 +47,7 @@ function GameCreation({
 const mapStateToProps = (state, props) => ({
   charactersPerPlayer: getCharactersPerPlayer(state),
   numberOfPlayers: getNumberOfPlayers(state),
+  minNumberPlayersAllowed: isMinNumberPlayersAllowed(state),
 })
 
 const mapDispatchToProps = dispatch => ({
