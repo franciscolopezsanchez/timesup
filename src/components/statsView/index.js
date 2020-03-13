@@ -6,15 +6,17 @@ import ActionButton from "../actionButton"
 import {useParams} from "react-router"
 
 import {startNewRound} from "../../actions/game"
+import {selectLastPlayerPlayed} from "../../actions/turn"
 
 import {useTranslation} from "react-i18next"
 import {Link} from "react-router-dom"
 
-function StatsView({startNewRound}) {
+function StatsView({startNewRound, selectLastPlayerPlayed}) {
   const {t} = useTranslation()
   let {round} = useParams()
 
   const onButtonClick = () => {
+    selectLastPlayerPlayed()
     startNewRound()
   }
 
@@ -32,6 +34,7 @@ function StatsView({startNewRound}) {
 
 const mapDispatchToProps = dispatch => ({
   startNewRound: () => dispatch(startNewRound()),
+  selectLastPlayerPlayed: () => dispatch(selectLastPlayerPlayed()),
 })
 
 export default connect(null, mapDispatchToProps)(StatsView)
