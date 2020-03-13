@@ -6,27 +6,15 @@ import ActionButton from "../actionButton"
 import {useParams} from "react-router"
 
 import {startNewRound} from "../../actions/game"
-import {initiateRoundStats} from "../../actions/stats"
-import {selectNextPlayer} from "../../actions/turn"
-import {getPlayers} from "../../reducers/player"
-import {getNumberOfRounds} from "../../reducers/game"
 
 import {useTranslation} from "react-i18next"
 import {Link} from "react-router-dom"
 
-function StatsView({
-  players,
-  numberOfRounds,
-  selectNextPlayer,
-  initiateRoundStats,
-  startNewRound,
-}) {
+function StatsView({startNewRound}) {
   const {t} = useTranslation()
   let {round} = useParams()
 
   const onButtonClick = () => {
-    selectNextPlayer(players)
-    initiateRoundStats(numberOfRounds, players)
     startNewRound()
   }
 
@@ -42,16 +30,8 @@ function StatsView({
   )
 }
 
-const mapStateToProps = state => ({
-  players: getPlayers(state),
-  numberOfRounds: getNumberOfRounds(state),
-})
-
 const mapDispatchToProps = dispatch => ({
-  selectNextPlayer: players => dispatch(selectNextPlayer(players)),
-  initiateRoundStats: (numberOfRounds, players) =>
-    dispatch(initiateRoundStats(numberOfRounds, players)),
   startNewRound: () => dispatch(startNewRound()),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(StatsView)
+export default connect(null, mapDispatchToProps)(StatsView)
