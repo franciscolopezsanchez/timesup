@@ -21,7 +21,8 @@ const mapStateToProps = (state, props) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  createPlayer: (player_name, team_id) => dispatch(createPlayer(player_name, team_id)),
+  createPlayer: (player_name, team_id, team_name) =>
+    dispatch(createPlayer(player_name, team_id, team_name)),
   removePlayer: player_name => dispatch(removePlayer(player_name)),
 })
 

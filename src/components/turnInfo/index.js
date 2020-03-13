@@ -4,7 +4,7 @@ import {getPlayerPlaying} from "../../reducers/game"
 
 function TurnInfo({player}) {
   if (!player) return null
-  return <div>{"Juega " + player.name + " del Equipo " + player.team}</div>
+  return <div>{"Juega " + player.name + " del Equipo " + player.team_name}</div>
 }
 
 const mapStateToProps = (state, props) => ({

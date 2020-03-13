@@ -23,9 +23,10 @@ describe("player reducer", () => {
           type: "CREATE_PLAYER",
           player_name: "Jesus",
           team_id: 1,
+          team_name: "name",
         }
       )
-    ).toEqual({players: [{name: "Jesus", team: 1}]})
+    ).toEqual({players: [{name: "Jesus", team: 1, team_name: "name"}]})
   })
 
   it("should handle CREATE_PLAYER when player exists", () => {

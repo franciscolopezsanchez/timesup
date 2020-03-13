@@ -13,6 +13,7 @@ const stats = (state = initialState, action) => {
         playersStats[i] = {
           player: players[i].name,
           team: players[i].team,
+          team_name: players[i].team_name,
           rightAnswers: 0,
         }
       }
@@ -40,9 +41,18 @@ export const getRightAnswersPerPlayer = (state, playerName) => {
     .rightAnswers
 }
 
-export const getTeamStats = (state, team, round) => {
+export const getTeamStats = (state, team_id, round) => {
   return (
     state.stats.players[round - 1] &&
-    state.stats.players[round - 1].filter(player => player.team === team)
+    state.stats.players[round - 1].filter(player => player.team === team_id)
   )
+}
+
+export const getTeamName = (state, team_id) => {
+  const lastRound = state.stats.players.length - 1
+
+  const player =
+    state.stats.players[lastRound] &&
+    state.stats.players[lastRound].find(player => player.team === team_id)
+  return player && player.team_name
 }

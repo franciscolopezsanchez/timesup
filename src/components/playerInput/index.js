@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 
-function PlayerInput({teamId, createPlayer}) {
+function PlayerInput({teamId, createPlayer, teamName}) {
   const [player, setPlayer] = useState("")
   if (isNaN(teamId)) return null
   return (
@@ -10,7 +10,7 @@ function PlayerInput({teamId, createPlayer}) {
         value={player}
         onChange={e => setPlayer(e.target.value)}
         onBlur={() => {
-          if (player) createPlayer(player, teamId)
+          if (player) createPlayer(player, teamId, teamName)
           setPlayer("")
         }}
       />

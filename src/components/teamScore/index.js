@@ -1,12 +1,12 @@
 import React from "react"
 import {connect} from "react-redux"
 
-import {getTeamStats} from "../../reducers/stats"
+import {getTeamStats, getTeamName} from "../../reducers/stats"
 
-function TeamScore({teamStats, team}) {
+function TeamScore({teamStats, team, teamName}) {
   return (
     <section>
-      <header>Equipo {team}</header>
+      <header>Equipo {teamName}</header>
       {teamStats &&
         teamStats.map(player => {
           return (
@@ -21,6 +21,7 @@ function TeamScore({teamStats, team}) {
 
 const mapStateToProps = (state, props) => ({
   teamStats: getTeamStats(state, props.team, props.round),
+  teamName: getTeamName(state, props.team),
   team: props.team,
 })
 
