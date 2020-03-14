@@ -58,7 +58,6 @@ function GameController({
       ) : (
         <TurnView finishPlaying={finishPlayingHandler} />
       )}
-      {}
     </div>
   )
 }
