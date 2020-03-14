@@ -2,7 +2,7 @@ import React from "react"
 import {connect} from "react-redux"
 
 import {getSecondsPerTurn} from "../../reducers/setting"
-import {getPlayerPlaying} from "../../reducers/game"
+import {getPlayerPlaying, canSkipCharacter} from "../../reducers/game"
 import {getNumberCharactersLeft} from "../../reducers/rounds"
 
 import {selectCharacter, removeCharacter} from "../../actions/rounds"
@@ -25,6 +25,7 @@ function TurnView({
   removeCharacter,
   rightAnswer,
   finishRound,
+  canSkipCharacter,
 }) {
   const {t} = useTranslation()
 
@@ -34,7 +35,11 @@ function TurnView({
       <TurnScore player={playerPlaying.name} />
       <CharacterCard />
       <Timer seconds={secondsPerTurn} handler={finishPlaying} />
-      <ActionButton buttonText={t("Next character")} handler={selectCharacter} />
+      <ActionButton
+        disabled={!canSkipCharacter}
+        buttonText={t("Next character")}
+        handler={selectCharacter}
+      />
       <ActionButton
         buttonText={t("Right answer")}
         handler={() => {
@@ -54,6 +59,7 @@ const mapStateToProps = state => ({
   secondsPerTurn: getSecondsPerTurn(state),
   playerPlaying: getPlayerPlaying(state),
   charactersLeft: getNumberCharactersLeft(state),
+  canSkipCharacter: canSkipCharacter(state),
 })
 
 const mapDispatchToProps = dispatch => ({
