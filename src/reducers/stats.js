@@ -51,6 +51,17 @@ export const getTeamStats = (state, team_id, round) => {
   )
 }
 
+export const getTotalScore = (state, team_id, round) => {
+  let totalScore = 0
+  state.stats.players[round - 1] &&
+  state.stats.players[round - 1].map(player => {
+    if(player.team === team_id){
+      totalScore += player.rightAnswers
+    }
+  })
+  return totalScore
+}
+
 export const getTeamName = (state, team_id) => {
   const lastRound = state.stats.players.length - 1
 

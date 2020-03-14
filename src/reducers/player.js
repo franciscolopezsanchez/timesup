@@ -4,8 +4,14 @@ export const MIN_NUMBER_TEAMS = 2
 export const MIN_NUMBER_PLAYERS_PER_TEAM = 2
 
 const initialState = {
-  players: [],
-}
+  players: [
+  {name: "jesus", team: 0, team_name: "Equipo Azul"},
+  {name: "rocio", team: 0, team_name: "Equipo Azul"},
+  {name: "roko", team: 0, team_name: "Equipo Azul"},
+  {name: "cris", team: 1, team_name: "Equipo Amarillo"},
+  {name: "curro", team: 1, team_name: "Equipo Amarillo"},
+  ],
+  }
 
 const players = (state = initialState, action) => {
   switch (action.type) {
