@@ -50,7 +50,7 @@ function GameController({
   return (
     <div>
       {isGameFinished ? (
-        <div>ZE TERMINó</div>
+        <Redirect to={"/end-game"} />
       ) : isRoundFinished ? (
         <Redirect to={`/stats/${actualRound}`} />
       ) : !playing ? (
