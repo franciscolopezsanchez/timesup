@@ -29,7 +29,7 @@ const stats = (state = initialState, action) => {
       return {...state, players: state.players}
 
     case RESET_STATS:
-      return initialState
+      return {...state, players: []}
 
     default:
       return state
