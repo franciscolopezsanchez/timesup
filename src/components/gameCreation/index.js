@@ -1,6 +1,6 @@
 import React from "react"
 import {connect} from "react-redux"
-import {createGame, startNewRound} from "../../actions/game"
+import {startNewRound} from "../../actions/game"
 import {selectCharacters} from "../../actions/characters"
 import {getCharactersPerPlayer} from "../../reducers/setting"
 import {getNumberOfPlayers} from "../../reducers/player"
@@ -16,12 +16,11 @@ import {Link} from "react-router-dom"
 import SETTINGS from "../../config-files/settings-config"
 
 function GameCreation({
-  createGame,
   startNewRound,
   selectCharacters,
   charactersPerPlayer,
   numberOfPlayers,
-  minNumberPlayersAllowed
+  minNumberPlayersAllowed,
 }) {
   const {t} = useTranslation()
 
@@ -35,7 +34,6 @@ function GameCreation({
           disabled={!minNumberPlayersAllowed}
           buttonText={t("Play")}
           handler={() => {
-            createGame()
             startNewRound()
             selectCharacters(charactersPerPlayer * numberOfPlayers)
           }}
@@ -52,7 +50,6 @@ const mapStateToProps = (state, props) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  createGame: () => dispatch(createGame()),
   startNewRound: () => dispatch(startNewRound()),
   selectCharacters: numberOfCharacters => dispatch(selectCharacters(numberOfCharacters)),
 })

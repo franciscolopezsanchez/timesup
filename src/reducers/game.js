@@ -1,4 +1,4 @@
-import {CREATE_GAME, START_NEW_ROUND, FINISH_ROUND} from "../actions/game"
+import {START_NEW_ROUND, FINISH_ROUND} from "../actions/game"
 import {SELECT_NEXT_PLAYER, SELECT_LAST_PLAYER_PLAYED} from "../actions/turn"
 import GetNextPlayer from "../helpers/turn"
 
@@ -12,9 +12,6 @@ const initialState = {
 
 const game = (state = initialState, action) => {
   switch (action.type) {
-    case CREATE_GAME:
-      return {...state, game_status: "CREATED"}
-
     case START_NEW_ROUND:
       return {...state, round: ++state.round, game_status: "ROUND_STARTED"}
 
