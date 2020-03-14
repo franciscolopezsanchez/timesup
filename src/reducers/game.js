@@ -4,7 +4,7 @@ import GetNextPlayer from "../helpers/turn"
 
 const initialState = {
   round: 0,
-  numberOfRounds: 1,
+  numberOfRounds: 3,
   player: null,
   last_player: null,
   game_status: null,
