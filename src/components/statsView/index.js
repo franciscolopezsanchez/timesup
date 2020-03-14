@@ -30,7 +30,7 @@ function StatsView({startNewRound, selectLastPlayerPlayed, isGameFinished}) {
       <span>Stadisticas ronda {round} </span>
       <TeamScore round={round} team={0} />
       <TeamScore round={round} team={1} />
-      <Link to="/get-ready">
+      <Link to="/playing">
         <ActionButton buttonText={getButtonText()} />
       </Link>
     </div>
