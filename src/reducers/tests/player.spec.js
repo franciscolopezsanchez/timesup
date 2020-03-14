@@ -142,6 +142,21 @@ describe("player reducer", () => {
           expect(minNumberOfPlayerAllowed).toBe(false)
         })
       })
+      describe(`when one team has more than ${MIN_NUMBER_PLAYERS_PER_TEAM}`, () => {
+        it("returns true", () => {
+          const initialState = {
+            players: {
+              players: [
+                {name: "Jesus", team: 1},
+                {name: "Curro", team: 1},
+              ],
+            },
+          }
+
+          const minNumberOfPlayerAllowed = isMinNumberPlayersAllowed(initialState)
+          expect(minNumberOfPlayerAllowed).toBe(false)
+        })
+      })
       describe(`when all teams have equal or more than ${MIN_NUMBER_PLAYERS_PER_TEAM}`, () => {
         it("returns true", () => {
           const initialState = {
@@ -170,6 +185,7 @@ describe("player reducer", () => {
           const minNumberOfPlayerAllowed = isMinNumberPlayersAllowed(initialState)
           expect(minNumberOfPlayerAllowed).toBe(true)
         })
+        
       })
     })
   })
