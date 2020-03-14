@@ -1,5 +1,7 @@
 import {CREATE_PLAYER, REMOVE_PLAYER} from "../actions/player"
 
+export const MIN_NUMBER_PLAYERS_PER_TEAM = 2
+
 const initialState = {
   players: [],
 }
@@ -46,3 +48,18 @@ export const getPlayersByTeam = (state, teamId) => {
 export const getNumberOfPlayers = state => state.players.players.length
 
 export const getPlayers = state => state.players.players
+
+export const isMinNumberPlayersAllowed = state => {
+  let teams = []
+  state.players.players.map(player => {
+    if (!teams.includes(player.team)) teams.push(player.team) 
+    return player
+  })
+
+  if (!teams.length) return false
+  return teams.every(
+    team =>
+      state.players.players.filter(player => player.team === team).length >=
+      MIN_NUMBER_PLAYERS_PER_TEAM
+  )
+}

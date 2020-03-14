@@ -1,4 +1,9 @@
-import players, {getPlayersByTeam, getNumberOfPlayers} from "../player"
+import players, {
+  getPlayersByTeam,
+  getNumberOfPlayers,
+  isMinNumberPlayersAllowed,
+  MIN_NUMBER_PLAYERS_PER_TEAM,
+} from "../player"
 import {cleanup} from "@testing-library/react"
 
 describe("player reducer", () => {
@@ -100,5 +105,72 @@ describe("player reducer", () => {
     const initialState = {players: {players: [{name: "Jesus", team: 1}]}}
     const numberOfPlayers = getNumberOfPlayers(initialState)
     expect(numberOfPlayers).toBe(1)
+  })
+
+  describe("isMinNumberPlayersAllowed", () => {
+    describe("when no players", () => {
+      it("returns false", () => {
+        const initialState = {players: {players: []}}
+
+        const minNumberOfPlayerAllowed = isMinNumberPlayersAllowed(initialState)
+        expect(minNumberOfPlayerAllowed).toBe(false)
+      })
+    })
+
+    describe("when only one team", () => {
+      it("returns false", () => {
+        const initialState = {players: {players: [{name: "Jesus", team: 1}]}}
+
+        const minNumberOfPlayerAllowed = isMinNumberPlayersAllowed(initialState)
+        expect(minNumberOfPlayerAllowed).toBe(false)
+      })
+    })
+
+    describe("when there are two teams", () => {
+      describe(`when one team has less than ${MIN_NUMBER_PLAYERS_PER_TEAM}`, () => {
+        it("returns false", () => {
+          const initialState = {
+            players: {
+              players: [
+                {name: "Jesus", team: 1},
+                {name: "Curro", team: 0},
+              ],
+            },
+          }
+
+          const minNumberOfPlayerAllowed = isMinNumberPlayersAllowed(initialState)
+          expect(minNumberOfPlayerAllowed).toBe(false)
+        })
+      })
+      describe(`when all teams have equal or more than ${MIN_NUMBER_PLAYERS_PER_TEAM}`, () => {
+        it("returns true", () => {
+          const initialState = {
+            players: {
+              players: [
+                {name: "Jesus", team: 1},
+                {name: "Curro", team: 0},
+                {name: "Cris", team: 1},
+                {name: "Roci", team: 0},
+                {name: "Jesus", team: 2},
+                {name: "Curro", team: 3},
+                {name: "Cris", team: 2},
+                {name: "Roci", team: 3},
+                {name: "Jesus", team: 0},
+                {name: "Curro", team: 0},
+                {name: "Cris", team: 0},
+                {name: "Roci", team: 3},
+                {name: "Jesus", team: 3},
+                {name: "Curro", team: 4},
+                {name: "Cris", team: 4},
+                {name: "Roci", team: 3},
+              ],
+            },
+          }
+
+          const minNumberOfPlayerAllowed = isMinNumberPlayersAllowed(initialState)
+          expect(minNumberOfPlayerAllowed).toBe(true)
+        })
+      })
+    })
   })
 })
