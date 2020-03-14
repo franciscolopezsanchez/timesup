@@ -21,6 +21,7 @@ function GameCreation({
   selectCharacters,
   charactersPerPlayer,
   numberOfPlayers,
+  minNumberPlayersAllowed
 }) {
   const {t} = useTranslation()
 
