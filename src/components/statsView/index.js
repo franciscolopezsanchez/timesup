@@ -1,25 +1,28 @@
-import React from "react"
+import React, {useEffect} from "react"
 import {connect} from "react-redux"
 
 import TeamScore from "../teamScore"
 import ActionButton from "../actionButton"
 import {useParams} from "react-router"
 
-import {initiateRoundStats} from "../../actions/stats"
-import {selectNextPlayer} from "../../actions/turn"
-import {getPlayers} from "../../reducers/player"
-import {getNumberOfRounds} from "../../reducers/game"
+import {startNewRound} from "../../actions/game"
+import {selectLastPlayerPlayed} from "../../actions/turn"
+import {isGameFinished} from "../../reducers/game"
 
 import {useTranslation} from "react-i18next"
 import {Link} from "react-router-dom"
 
-function StatsView({players, numberOfRounds, selectNextPlayer, initiateRoundStats}) {
+function StatsView({startNewRound, selectLastPlayerPlayed, isGameFinished}) {
   const {t} = useTranslation()
   let {round} = useParams()
 
-  const onButtonClick = () => {
-    selectNextPlayer(players)
-    initiateRoundStats(numberOfRounds, players)
+  useEffect(() => {
+    selectLastPlayerPlayed()
+    startNewRound()
+  }, [])
+
+  const getButtonText = () => {
+    return isGameFinished ? t("Final Stats") : t("Next Round")
   }
 
   return (
@@ -28,21 +31,19 @@ function StatsView({players, numberOfRounds, selectNextPlayer, initiateRoundStat
       <TeamScore round={round} team={0} />
       <TeamScore round={round} team={1} />
       <Link to="/play">
-        <ActionButton buttonText={t("Next Round")} handler={onButtonClick} />
+        <ActionButton buttonText={getButtonText()} />
       </Link>
     </div>
   )
 }
 
 const mapStateToProps = state => ({
-  players: getPlayers(state),
-  numberOfRounds: getNumberOfRounds(state),
+  isGameFinished: isGameFinished(state),
 })
 
 const mapDispatchToProps = dispatch => ({
-  selectNextPlayer: players => dispatch(selectNextPlayer(players)),
-  initiateRoundStats: (numberOfRounds, players) =>
-    dispatch(initiateRoundStats(numberOfRounds, players)),
+  startNewRound: () => dispatch(startNewRound()),
+  selectLastPlayerPlayed: () => dispatch(selectLastPlayerPlayed()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(StatsView)

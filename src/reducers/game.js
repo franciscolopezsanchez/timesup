@@ -39,3 +39,4 @@ export const getNumberOfRounds = state => state.game.numberOfRounds
 export const getPlayerPlaying = state => state.game.player
 export const getActualRound = state => state.game.round
 export const isRoundFinished = state => state.game.game_status === "ROUND_FINISHED"
+export const isGameFinished = state => state.game.round > state.game.numberOfRounds
