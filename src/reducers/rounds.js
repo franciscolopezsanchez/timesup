@@ -1,4 +1,9 @@
-import {CREATE_ROUNDS, SELECT_CHARACTER, REMOVE_CHARACTER} from "../actions/rounds"
+import {
+  CREATE_ROUNDS,
+  SELECT_CHARACTER,
+  REMOVE_CHARACTER,
+  RESET_ROUNDS,
+} from "../actions/rounds"
 
 import CreateRoundsRandomizingCharacters from "../helpers/rounds"
 
@@ -30,6 +35,9 @@ const rounds = (state = initialState, action) => {
 
       if (state.characters.length === state.actualCharacterIndex) index = 0
       return {...state, characters: array, actualCharacterIndex: index}
+
+    case RESET_ROUNDS:
+      return {...initialState}
 
     default:
       return state

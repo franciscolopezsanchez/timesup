@@ -5,10 +5,11 @@ import {Link} from "react-router-dom"
 
 import {resetGame} from "../../actions/game"
 import {resetStats} from "../../actions/stats"
+import {resetRounds} from "../../actions/rounds"
 
 import ActionButton from "../actionButton"
 
-function FinalStats({resetGame, resetStats}) {
+function FinalStats({resetGame, resetStats, resetRounds}) {
   return (
     <div>
       <div>TODO: Show Final Stats</div>
@@ -18,6 +19,7 @@ function FinalStats({resetGame, resetStats}) {
           handler={() => {
             resetGame()
             resetStats()
+            resetRounds()
           }}
         />
       </Link>
@@ -28,6 +30,7 @@ function FinalStats({resetGame, resetStats}) {
 const mapDispatchToProps = dispatch => ({
   resetGame: () => dispatch(resetGame()),
   resetStats: () => dispatch(resetStats()),
+  resetRounds: () => dispatch(resetRounds()),
 })
 
 export default connect(null, mapDispatchToProps)(FinalStats)
