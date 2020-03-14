@@ -52,7 +52,8 @@ export const getPlayers = state => state.players.players
 export const isMinNumberPlayersAllowed = state => {
   let teams = []
   state.players.players.map(player => {
-    if (!teams.includes(player.team)) teams.push(player.team)
+    if (!teams.includes(player.team)) teams.push(player.team) 
+    return player
   })
 
   if (!teams.length) return false
