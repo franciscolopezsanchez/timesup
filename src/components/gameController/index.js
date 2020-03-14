@@ -6,7 +6,7 @@ import {createRounds} from "../../actions/rounds"
 import {getCharacters} from "../../reducers/characters"
 import {getPlayers} from "../../reducers/player"
 import {getNumberOfRounds, getActualRound} from "../../reducers/game"
-import {isRoundFinished} from "../../reducers/game"
+import {isRoundFinished, isGameFinished} from "../../reducers/game"
 import {selectNextPlayer} from "../../actions/turn"
 import {selectCharacter} from "../../actions/rounds"
 import {initiateRoundStats} from "../../actions/stats"
@@ -20,6 +20,7 @@ function GameController({
   players,
   numberOfRounds,
   isRoundFinished,
+  isGameFinished,
   createRounds,
   selectNextPlayer,
   selectCharacter,
@@ -48,13 +49,16 @@ function GameController({
 
   return (
     <div>
-      {isRoundFinished ? (
+      {isGameFinished ? (
+        <div>ZE TERMINó</div>
+      ) : isRoundFinished ? (
         <Redirect to={`/stats/${actualRound}`} />
       ) : !playing ? (
         <RoundInstructions startPlaying={startPlayingHandler} />
       ) : (
         <TurnView finishPlaying={finishPlayingHandler} />
       )}
+      {}
     </div>
   )
 }
@@ -64,6 +68,7 @@ const mapStateToProps = state => ({
   numberOfRounds: getNumberOfRounds(state),
   players: getPlayers(state),
   isRoundFinished: isRoundFinished(state),
+  isGameFinished: isGameFinished(state),
   actualRound: getActualRound(state),
 })
 
