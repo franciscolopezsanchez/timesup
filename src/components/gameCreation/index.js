@@ -32,7 +32,7 @@ function GameCreation({
       <SettingListContainer settings={SETTINGS} />
       <Link to="/play">
         <ActionButton
-          disabled={minNumberPlayersAllowed}
+          disabled={!minNumberPlayersAllowed}
           buttonText={t("Play")}
           handler={() => {
             createGame()
