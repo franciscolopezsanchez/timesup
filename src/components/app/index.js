@@ -21,7 +21,7 @@ function App() {
             <Route exact path="/create">
               <GameCreation />
             </Route>
-            <Route exact path="/get-ready">
+            <Route exact path="/playing">
               <GameController />
             </Route>
             <Route exact path="/stats/:round">

@@ -29,7 +29,7 @@ function GameCreation({
       <PlayerListContainer teamId={0} teamName="Equipo Azul" />
       <PlayerListContainer teamId={1} teamName="Equipo Amarillo" />
       <SettingListContainer settings={SETTINGS} />
-      <Link to="/get-ready">
+      <Link to="/playing">
         <ActionButton
           disabled={!minNumberPlayersAllowed}
           buttonText={t("Play")}
