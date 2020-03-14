@@ -6,6 +6,7 @@ import Title from "../title"
 import GameCreation from "../gameCreation"
 import GameController from "../gameController"
 import StatsView from "../statsView"
+import FinalStats from "../finalStats"
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
             </Route>
             <Route exact path="/stats/:round">
               <StatsView />
+            </Route>
+            <Route exact path="/end-game">
+              <FinalStats />
             </Route>
           </Switch>
         </Router>
