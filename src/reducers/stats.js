@@ -1,4 +1,4 @@
-import {RIGHT_ANSWER, INITIATE_ROUND_STATS} from "../actions/stats"
+import {RIGHT_ANSWER, INITIATE_ROUND_STATS, RESET_STATS} from "../actions/stats"
 
 const initialState = {
   players: [],
@@ -27,6 +27,9 @@ const stats = (state = initialState, action) => {
       state.players[actualRound].find(player => player.player === playerName)
         .rightAnswers++
       return {...state, players: state.players}
+
+    case RESET_STATS:
+      return initialState
 
     default:
       return state

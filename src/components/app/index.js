@@ -30,6 +30,9 @@ function App() {
             <Route exact path="/end-game">
               <FinalStats />
             </Route>
+            <Route>
+              <Redirect to="/create" />
+            </Route>
           </Switch>
         </Router>
       </div>
