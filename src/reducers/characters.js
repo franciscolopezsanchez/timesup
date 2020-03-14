@@ -1,4 +1,4 @@
-import {SELECT_CHARACTERS} from "../actions/characters"
+import {SELECT_CHARACTERS, RESET_CHARACTERS} from "../actions/characters"
 
 import GetRandomCharacters from "../helpers/characters"
 
@@ -11,6 +11,9 @@ const characters = (state = initialState, action) => {
     case SELECT_CHARACTERS:
       const characters = GetRandomCharacters(action.characters)
       return {...state, characters: characters}
+
+    case RESET_CHARACTERS:
+      return {...initialState}
 
     default:
       return state
