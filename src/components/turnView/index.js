@@ -34,7 +34,7 @@ function TurnView({
       <div>Jugando: {playerPlaying.name}</div>
       <TurnScore player={playerPlaying.name} />
       <CharacterCard />
-      <Timer seconds={3} handler={finishPlaying} />
+      <Timer seconds={secondsPerTurn} handler={finishPlaying} />
       <ActionButton
         disabled={!canSkipCharacter}
         buttonText={t("Next character")}
