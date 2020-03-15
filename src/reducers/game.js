@@ -2,7 +2,7 @@ import {START_NEW_ROUND, FINISH_ROUND, RESET_GAME} from "../actions/game"
 import {SELECT_NEXT_PLAYER, SELECT_LAST_PLAYER_PLAYED} from "../actions/turn"
 import GetNextPlayer from "../helpers/turn"
 
-const NUMBER_OF_ROUNDS = 3
+const NUMBER_OF_ROUNDS = 1
 
 const initialState = {
   round: 0,
