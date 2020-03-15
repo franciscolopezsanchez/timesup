@@ -7,13 +7,17 @@ import {resetGame} from "../../actions/game"
 import {resetStats} from "../../actions/stats"
 import {resetRounds} from "../../actions/rounds"
 import {resetCharacters} from "../../actions/characters"
+import {getWinnerTeam} from "../../reducers/stats"
 
+import TeamFinalScore from "../teamFinalScore"
 import ActionButton from "../actionButton"
 
-function FinalStats({resetGame, resetStats, resetRounds, resetCharacters}) {
+function FinalStats({resetGame, resetStats, resetRounds, resetCharacters,winnerTeam}) {
   return (
     <div>
-      <div>TODO: Show Final Stats</div>
+      <div>AND THE WINNER IS {winnerTeam}</div>
+      <TeamFinalScore team={0} />
+      <TeamFinalScore team={1} />
       <Link to="/create">
         <ActionButton
           buttonText={"Play again"}
@@ -29,6 +33,10 @@ function FinalStats({resetGame, resetStats, resetRounds, resetCharacters}) {
   )
 }
 
+const mapStateToProps = state => ({
+  winnerTeam: getWinnerTeam(state),
+})
+
 const mapDispatchToProps = dispatch => ({
   resetGame: () => dispatch(resetGame()),
   resetStats: () => dispatch(resetStats()),
@@ -36,4 +44,4 @@ const mapDispatchToProps = dispatch => ({
   resetCharacters: () => dispatch(resetCharacters()),
 })
 
-export default connect(null, mapDispatchToProps)(FinalStats)
+export default connect(mapStateToProps, mapDispatchToProps)(FinalStats)

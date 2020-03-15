@@ -5,7 +5,7 @@ export const MIN_NUMBER_PLAYERS_PER_TEAM = 2
 
 const initialState = {
   players: [],
-}
+  }
 
 const players = (state = initialState, action) => {
   switch (action.type) {
