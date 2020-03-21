@@ -1,23 +1,34 @@
+@font-face {
+  font-family: funHouse;
+  src: url(/fonts/Funhouse.ttf);
+}
+
 .button {
   cursor: pointer;
   background: #1b2f33;
   background: rgba(27, 47, 51, 1);
-  border-radius: 16px;
-  -moz-border-radius: 16px;
-  color: #fefe72;
-  font-size: 40px;
-  padding: 10px;
+
+  border: 0px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+
+  padding: 20px;
   min-width: 150px;
+  height: 75px;
+
   -webkit-box-shadow: 7px 7px 22px #000000;
   -moz-box-shadow: 7px 7px 22px #000000;
   box-shadow: 7px 7px 22px #000000;
-  font-family: Verdana, Geneva, sans-serif;
+
+  color: rgb(255, 253, 130);
+  font-size: 32px;
+  font-family: funHouse;
 
   &:hover {
-    background-color: #353738;
+    background-color: #152427;
   }
 
   &:disabled {
-    background-color: gray;
+    background-color: #a5a5a5;
   }
 }

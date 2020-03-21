@@ -1,9 +1,8 @@
 import React from "react"
-import {useTranslation} from "react-i18next"
+import styles from "./Title.module.scss"
 
 function Title() {
-  const {t} = useTranslation()
-  return <h1>{t("TICKING")}</h1>
+  return <img src="/ticking-logo.png" alt="logo" className={styles.logo} />
 }
 
 export default Title
