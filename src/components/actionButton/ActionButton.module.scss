@@ -8,18 +8,20 @@
   background: #1b2f33;
   background: rgba(27, 47, 51, 1);
 
-  border-radius: 16px;
-  -moz-border-radius: 16px;
+  border: 0px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
 
-  padding: 10px;
+  padding: 20px;
   min-width: 150px;
+  height: 75px;
 
   -webkit-box-shadow: 7px 7px 22px #000000;
   -moz-box-shadow: 7px 7px 22px #000000;
   box-shadow: 7px 7px 22px #000000;
 
   color: rgb(255, 253, 130);
-  font-size: 40px;
+  font-size: 32px;
   font-family: funHouse;
 
   &:hover {
