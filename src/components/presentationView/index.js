@@ -1,5 +1,5 @@
 import React from "react"
-import Title from "../title"
+
 import ActionButton from "../actionButton"
 import {useTranslation} from "react-i18next"
 import {Link} from "react-router-dom"
@@ -12,7 +12,7 @@ function PresentationView() {
   return (
     <div className={styles.presentationView}>
       <div className={styles.titleWrapper}>
-        <Title />
+        <img src="/ticking-logo.png" alt="logo" className={styles.logo} />
       </div>
       <div className={styles.startButtonWrapper}>
         <Link to="/create">
