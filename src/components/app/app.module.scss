@@ -46,8 +46,10 @@
     rgba(255, 253, 130, 1) 100%
   );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#75DDDD',endColorstr='#FFFD82' , GradientType=0);
+
   .app {
     max-width: 400px;
+    height: 100%;
     margin: 0 auto;
   }
 }

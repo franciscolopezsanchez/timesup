@@ -1,4 +1,4 @@
-import React, {Fragment} from "react"
+import React from "react"
 import Title from "../title"
 import ActionButton from "../actionButton"
 import {useTranslation} from "react-i18next"
@@ -8,13 +8,17 @@ function PresentationView() {
   const {t} = useTranslation()
 
   return (
-    <Fragment>
-      <Title />
-      <ActionButton buttonText={t("Comenzar")} />
+    <div className={styles.presentationView}>
+      <div className={styles.titleWrapper}>
+        <Title />
+      </div>
+      <div className={styles.startButtonWrapper}>
+        <ActionButton buttonText={t("Comenzar")} />
+      </div>
       <div className={styles.mountainsWrapper}>
         <div className={styles.mountainsImage}></div>
       </div>
-    </Fragment>
+    </div>
   )
 }
 
