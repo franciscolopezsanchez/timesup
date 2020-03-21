@@ -6,6 +6,7 @@ import Title from "../title"
 import GameCreation from "../gameCreation"
 import GameController from "../gameController"
 import StatsView from "../statsView"
+import PresetationView from "../presentationView"
 import FinalStats from "../finalStats"
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/">
-              <Redirect to="/create" />
+              <PresetationView />
             </Route>
             <Route exact path="/create">
               <GameCreation />
