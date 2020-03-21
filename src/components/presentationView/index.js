@@ -2,6 +2,8 @@ import React from "react"
 import Title from "../title"
 import ActionButton from "../actionButton"
 import {useTranslation} from "react-i18next"
+import {Link} from "react-router-dom"
+
 import styles from "./presentationView.module.scss"
 
 function PresentationView() {
@@ -13,7 +15,9 @@ function PresentationView() {
         <Title />
       </div>
       <div className={styles.startButtonWrapper}>
-        <ActionButton buttonText={t("Comenzar")} />
+        <Link to="/create">
+          <ActionButton buttonText={t("Comenzar")} />
+        </Link>
       </div>
       <div className={styles.mountainsWrapper}>
         <div className={styles.mountainsImage}></div>
