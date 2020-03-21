@@ -53,15 +53,4 @@ describe("PlayerList tests", () => {
     expect(container).toBeTruthy()
     expect(header).toBeFalsy()
   })
-
-  test("renders snapshot", () => {
-    const players = [
-      {name: "jesus", team: 0},
-      {name: "rocio", team: 0},
-      {name: "cris", team: 1},
-      {name: "curro", team: 1},
-    ]
-    const {asFragment} = render(<PlayerList players={players} />)
-    expect(asFragment()).toMatchSnapshot()
-  })
 })

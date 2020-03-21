@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {Fragment} from "react"
 import {connect} from "react-redux"
 import {startNewRound} from "../../actions/game"
 import {selectCharacters} from "../../actions/characters"
@@ -12,7 +12,6 @@ import ActionButton from "../actionButton"
 
 import {useTranslation} from "react-i18next"
 import {Link} from "react-router-dom"
-import styles from "./gameCreation.module.scss"
 
 import SETTINGS from "../../config-files/settings-config"
 
@@ -24,31 +23,11 @@ function GameCreation({
   minNumberPlayersAllowed,
 }) {
   const {t} = useTranslation()
-  const [showYellowTeam, setShowYellowTeam] = useState(false)
-  const [showBlueTeam, setShowBlueTeam] = useState(false)
 
   return (
-    <div className={styles.gameCreation}>
-      <div
-        className={styles.teamPanel + " " + styles.yellowTeam}
-        onClick={() => setShowYellowTeam(true)}
-      >
-        {showYellowTeam ? (
-          <PlayerListContainer teamId={1} teamName="Equipo Amarillo" />
-        ) : (
-          <div className={styles.panelTitle}>EQUIPO AMARILLO</div>
-        )}
-      </div>
-      <div
-        className={styles.teamPanel + " " + styles.blueTeam}
-        onClick={() => setShowBlueTeam(true)}
-      >
-        {showBlueTeam ? (
-          <PlayerListContainer teamId={0} teamName="Equipo Azul" />
-        ) : (
-          <div className={styles.panelTitle}>EQUIPO AZUL</div>
-        )}
-      </div>
+    <Fragment>
+      <PlayerListContainer teamId={0} teamName="Equipo Amarillo" />
+      <PlayerListContainer teamId={1} teamName="Equipo Azul" />
       <SettingListContainer settings={SETTINGS} />
       <Link to="/playing">
         <ActionButton
@@ -60,7 +39,7 @@ function GameCreation({
           }}
         />
       </Link>
-    </div>
+    </Fragment>
   )
 }
 
