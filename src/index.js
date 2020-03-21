@@ -6,7 +6,7 @@ import reducer from "./reducers/index"
 import "./i18n"
 import App from "./components/app"
 import "minireset.css"
-import "./global.css"
+import "./styles/global.scss"
 
 const store = createStore(
   reducer,
