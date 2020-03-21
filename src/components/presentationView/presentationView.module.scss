@@ -1,0 +1,15 @@
+.mountainsWrapper {
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+
+  .mountainsImage {
+    background: url("/montes.png");
+    background-size: cover;
+    background-position: center;
+    height: 200%;
+    width: 100%;
+  }
+}
